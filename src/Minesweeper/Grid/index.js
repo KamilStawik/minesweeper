@@ -1,7 +1,19 @@
-const Grid = () => (
+import { GridWrapper } from "./styled";
+import Field from "../../common/Field";
 
-    <Grid />
+const Grid = () => {
 
-);
+    const gridFields = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
+
+    return (
+
+        <GridWrapper>
+
+            {gridFields.map(gridFieldNumber => (<Field key={gridFieldNumber} number={gridFieldNumber} />))}
+
+        </GridWrapper>
+
+    );
+};
 
 export default Grid;
