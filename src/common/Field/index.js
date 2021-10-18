@@ -1,7 +1,16 @@
-const Field = ({ number }) => (
+const Field = ({ number }) => {
 
-    <button>{number}</button>
+    // const onFieldClick = () =>{
 
-);
+
+
+    // };
+
+    return (
+
+        <button>{number}</button>
+
+    );
+};
 
 export default Field;

@@ -4,5 +4,6 @@ export const GridWrapper = styled.div`
 	width: 500px;
     height: 500px;
     display: grid;
-    grid-template-rows: 10;
+    grid-gap: 2px;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 `;
