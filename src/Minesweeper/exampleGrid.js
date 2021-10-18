@@ -7,6 +7,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },
     {
         id: 2,
@@ -16,6 +17,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },
     {
         id: 3,
@@ -24,7 +26,8 @@ const exampleGrid = [
             row: 1,
         },
         reviled: false,
-        bomb: false,
+        bomb: true,
+        marked: false,
     },    
     {
         id: 4,
@@ -34,6 +37,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },
     {
         id: 5,
@@ -43,6 +47,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },
     {
         id: 6,
@@ -52,6 +57,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },
     {
         id: 7,
@@ -61,6 +67,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },
     {
         id: 8,
@@ -70,6 +77,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },    
     {
         id: 9,
@@ -79,6 +87,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },
     {
         id: 10,
@@ -87,7 +96,8 @@ const exampleGrid = [
             row: 2,
         },
         reviled: false,
-        bomb: false,
+        bomb: true,
+        marked: false,
     },
     {
         id: 11,
@@ -97,6 +107,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },
     {
         id: 12,
@@ -106,6 +117,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },
     {
         id: 13,
@@ -115,6 +127,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },    
     {
         id: 14,
@@ -124,6 +137,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },
     {
         id: 15,
@@ -133,6 +147,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },
     {
         id: 16,
@@ -142,6 +157,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },
     {
         id: 17,
@@ -151,6 +167,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },
     {
         id: 18,
@@ -160,6 +177,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },    
     {
         id: 19,
@@ -169,6 +187,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },
     {
         id: 20,
@@ -178,6 +197,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },
     {
         id: 21,
@@ -187,6 +207,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },
     {
         id: 22,
@@ -196,6 +217,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },
     {
         id: 23,
@@ -204,7 +226,8 @@ const exampleGrid = [
             row: 5,
         },
         reviled: false,
-        bomb: false,
+        bomb: true,
+        marked: false,
     },
     {
         id: 24,
@@ -214,6 +237,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },    
     {
         id: 25,
@@ -223,6 +247,7 @@ const exampleGrid = [
         },
         reviled: false,
         bomb: false,
+        marked: false,
     },
 ];
 
