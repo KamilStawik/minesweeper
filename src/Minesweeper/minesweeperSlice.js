@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import exampleGrid from "./exampleGrid";
+import getGrid from "./getGrid";
 
 const minesweeperSlice = createSlice(
     {
         name: 'minesweeper',
         initialState: {
-            grid: exampleGrid,
+            grid: getGrid(),
         },
 
         reducers: {
