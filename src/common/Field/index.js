@@ -1,23 +1,24 @@
 import { useDispatch } from "react-redux";
-import { setReviled, setMarked } from "./../../Minesweeper/minesweeperSlice";
+import { setReviled, setMarked, setFieldNumber } from "./../../Minesweeper/minesweeperSlice";
 
-const Field = ({ number, bomb, reviled, marked }) => {
+const Field = ({ id, bomb, reviled, marked, fieldNumber }) => {
 
     const dispatch = useDispatch();
 
     const clickHandler = (event) => {
         if (event.type === 'click') {
             event.preventDefault();
-            dispatch(setReviled(number));
+            dispatch(setReviled(id));
+            dispatch(setFieldNumber(id));
         } else if (event.type === 'contextmenu') {
             event.preventDefault();
-            dispatch(setMarked(number));
+            dispatch(setMarked(id));
         }
     };
 
     return (
 
-        <button onClick={clickHandler} onContextMenu={clickHandler}>{reviled && number} {marked && "🚩"} {bomb && "💣"}</button>
+        <button onClick={clickHandler} onContextMenu={clickHandler}>{fieldNumber || 0} {reviled && id} {marked && "🚩"} {bomb && "💣"}</button>
 
     );
 };

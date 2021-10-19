@@ -12,13 +12,14 @@ const Grid = () => {
         <GridWrapper>
 
             {grid.map(gridField =>
-                (<Field
-                    key={gridField.id}
-                    number={gridField.id}
-                    bomb={gridField.bomb}
-                    reviled={gridField.reviled}
-                    marked={gridField.marked}
-                />))}
+            (<Field
+                key={gridField.id}
+                id={gridField.id}
+                bomb={gridField.bomb}
+                reviled={gridField.reviled}
+                marked={gridField.marked}
+                fieldNumber={gridField.fieldNumber || 0}
+            />))}
 
         </GridWrapper>
 
