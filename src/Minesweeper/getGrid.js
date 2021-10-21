@@ -1,24 +1,79 @@
 const getGrid = () => {
 
-    const fieldsQuantity = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
-
+    const fieldsQuantity = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
 
     var grid = [];
 
-    var len = fieldsQuantity.length;
+    const len = fieldsQuantity.length;
     for (var i = 0; i < len; i++) {
         grid.push(
             {
-                id: fieldsQuantity[i],
+                id: i,
                 reviled: false,
-                bomb: !!`${Math.random() > 0.8 ? 1 : ""}`,
-                marked: false,
+                mine: !!`${Math.random() > 0.8 ? 1 : ""}`,
+                markedAsMine: false,
+                surroundingMines: "auto",
             }
         );
-    };
+    }
+
+    grid.forEach(gridField => {
+        var currentSurroundingMines = 0;
+        const currentIndex = gridField.id;
+        const trgetIndex = grid.findIndex(gridField => gridField.id === currentIndex - 1);
+
+        trgetIndex === -1
+            ?
+            gridField.surroundingMines = currentSurroundingMines
+            :
+            grid[trgetIndex].mine === true ? gridField.surroundingMines = currentSurroundingMines + 1 : gridField.surroundingMines = currentSurroundingMines;
+    });
+
+
+    // grid.forEach(gridField => {
+    //     const determiningFields = [-6, -5, -4, -1, 1, 4, 5, 6]
+    //     const index = gridField.id;
+    //     var currentSurroundingMines = 0;
+
+    //     determiningFields.forEach(determiningField => {
+
+    //         if (grid[index + determiningField]) {
+    //             if (grid[index + determiningField].mine === true) {
+    //                 currentSurroundingMines = currentSurroundingMines + 1
+    //             };
+    //         } else { currentSurroundingMines = currentSurroundingMines };
+    //         return currentSurroundingMines;
+    //     });
+    //     gridField.surroundingMines = currentSurroundingMines;
+    // });
+
+
 
     console.log(grid);
     return (grid);
 };
 
 export default getGrid;
+
+
+
+// });
+// const index = state.grid.findIndex(field => field.id === id);
+// state.grid[index].fieldNumber = (
+//     (state.grid[index - 6] ? (state.grid[index - 6].bomb === true ? 1 : 0) : 0)
+//     +
+//     (state.grid[index - 5] ? (state.grid[index - 5].bomb === true ? 1 : 0) : 0)
+//     +
+//     (state.grid[index - 4] ? (state.grid[index - 4].bomb === true ? 1 : 0) : 0)
+//     +
+//     (state.grid[index - 1] ? (state.grid[index - 1].bomb === true ? 1 : 0) : 0)
+//     +
+//     (state.grid[index + 1] ? (state.grid[index + 1].bomb === true ? 1 : 0) : 0)
+//     +
+//     (state.grid[index + 4] ? (state.grid[index + 4].bomb === true ? 1 : 0) : 0)
+//     +
+//     (state.grid[index + 5] ? (state.grid[index + 5].bomb === true ? 1 : 0) : 0)
+//     +
+//     (state.grid[index + 6] ? (state.grid[index + 6].bomb === true ? 1 : 0) : 0)
+// );
+// };

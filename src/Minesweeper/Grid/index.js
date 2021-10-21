@@ -15,9 +15,9 @@ const Grid = () => {
             (<Field
                 key={gridField.id}
                 id={gridField.id}
-                bomb={gridField.bomb}
+                mine={gridField.mine}
                 reviled={gridField.reviled}
-                marked={gridField.marked}
+                markedAsMine={gridField.markedAsMine}
                 fieldNumber={gridField.fieldNumber || 0}
             />))}
 
