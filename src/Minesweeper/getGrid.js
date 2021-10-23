@@ -25,67 +25,38 @@ const getGrid = () => {
             }
         );
     }
-    // this function is now checking if there is a mine on previos gridField!
+
     grid.forEach(gridField => {
 
         var currentSurroundingMines = 0;
         const currentColumn = gridField.coordinates.column;
         const currentRow = gridField.coordinates.row;
-        const trgetIndex = grid.findIndex(gridField => gridField.coordinates.column === currentColumn - 1 && gridField.coordinates.row === currentRow);
 
-        trgetIndex === -1
-            ?
-            gridField.surroundingMines = currentSurroundingMines
-            :
-            grid[trgetIndex].mine === true ? gridField.surroundingMines = currentSurroundingMines + 1 : gridField.surroundingMines = currentSurroundingMines;
+        const determiningFields = [
+            gridField => gridField.coordinates.column === currentColumn - 1 && gridField.coordinates.row === currentRow - 1,
+            gridField => gridField.coordinates.column === currentColumn && gridField.coordinates.row === currentRow - 1,
+            gridField => gridField.coordinates.column === currentColumn + 1 && gridField.coordinates.row === currentRow - 1,
+            gridField => gridField.coordinates.column === currentColumn - 1 && gridField.coordinates.row === currentRow,
+            gridField => gridField.coordinates.column === currentColumn + 1 && gridField.coordinates.row === currentRow,
+            gridField => gridField.coordinates.column === currentColumn - 1 && gridField.coordinates.row === currentRow + 1,
+            gridField => gridField.coordinates.column === currentColumn && gridField.coordinates.row === currentRow + 1,
+            gridField => gridField.coordinates.column === currentColumn + 1 && gridField.coordinates.row === currentRow + 1,
+        ];
+
+        determiningFields.forEach(determiningField => {
+            const trgetIndex = grid.findIndex(determiningField);
+
+            trgetIndex === -1
+                ?
+                gridField.surroundingMines = currentSurroundingMines
+                :
+                grid[trgetIndex].mine === true ? currentSurroundingMines = currentSurroundingMines + 1 : currentSurroundingMines = currentSurroundingMines;
+        });
+        gridField.surroundingMines = currentSurroundingMines;
     });
-
-
-
-    // grid.forEach(gridField => {
-    //     const determiningFields = [-6, -5, -4, -1, 1, 4, 5, 6]
-    //     const index = gridField.id;
-    //     var currentSurroundingMines = 0;
-
-    //     determiningFields.forEach(determiningField => {
-
-    //         if (grid[index + determiningField]) {
-    //             if (grid[index + determiningField].mine === true) {
-    //                 currentSurroundingMines = currentSurroundingMines + 1
-    //             };
-    //         } else { currentSurroundingMines = currentSurroundingMines };
-    //         return currentSurroundingMines;
-    //     });
-    //     gridField.surroundingMines = currentSurroundingMines;
-    // });
-
-
 
     console.log(grid);
     return (grid);
 };
 
 export default getGrid;
-
-
-
-// });
-// const index = state.grid.findIndex(field => field.id === id);
-// state.grid[index].fieldNumber = (
-//     (state.grid[index - 6] ? (state.grid[index - 6].bomb === true ? 1 : 0) : 0)
-//     +
-//     (state.grid[index - 5] ? (state.grid[index - 5].bomb === true ? 1 : 0) : 0)
-//     +
-//     (state.grid[index - 4] ? (state.grid[index - 4].bomb === true ? 1 : 0) : 0)
-//     +
-//     (state.grid[index - 1] ? (state.grid[index - 1].bomb === true ? 1 : 0) : 0)
-//     +
-//     (state.grid[index + 1] ? (state.grid[index + 1].bomb === true ? 1 : 0) : 0)
-//     +
-//     (state.grid[index + 4] ? (state.grid[index + 4].bomb === true ? 1 : 0) : 0)
-//     +
-//     (state.grid[index + 5] ? (state.grid[index + 5].bomb === true ? 1 : 0) : 0)
-//     +
-//     (state.grid[index + 6] ? (state.grid[index + 6].bomb === true ? 1 : 0) : 0)
-// );
-// };

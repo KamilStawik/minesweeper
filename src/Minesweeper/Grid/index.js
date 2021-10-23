@@ -16,9 +16,9 @@ const Grid = () => {
                 key={gridField.id}
                 id={gridField.id}
                 mine={gridField.mine}
+                surroundingMines={gridField.surroundingMines}
                 reviled={gridField.reviled}
                 markedAsMine={gridField.markedAsMine}
-                fieldNumber={gridField.fieldNumber || 0}
             />))}
 
         </GridWrapper>
