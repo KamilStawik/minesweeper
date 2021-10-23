@@ -6,6 +6,10 @@ const getGrid = () => {
 
     const len = fieldsQuantity.length;
     for (var i = 0; i < len; i++) {
+
+        var column = (i === 0 ? 1 : (column === 5 ? 1 : column = column + 1));
+        var row = (i === 0 ? 1 : (i % 5 === 0 ? row = row + 1 : row));
+
         grid.push(
             {
                 id: i,
@@ -13,6 +17,11 @@ const getGrid = () => {
                 mine: !!`${Math.random() > 0.8 ? 1 : ""}`,
                 markedAsMine: false,
                 surroundingMines: "auto",
+                coordinates:
+                {
+                    column,
+                    row,
+                }
             }
         );
     }
