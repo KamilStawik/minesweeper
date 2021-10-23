@@ -25,11 +25,13 @@ const getGrid = () => {
             }
         );
     }
-
+    // this function is now checking if there is a mine on previos gridField!
     grid.forEach(gridField => {
+
         var currentSurroundingMines = 0;
-        const currentIndex = gridField.id;
-        const trgetIndex = grid.findIndex(gridField => gridField.id === currentIndex - 1);
+        const currentColumn = gridField.coordinates.column;
+        const currentRow = gridField.coordinates.row;
+        const trgetIndex = grid.findIndex(gridField => gridField.coordinates.column === currentColumn - 1 && gridField.coordinates.row === currentRow);
 
         trgetIndex === -1
             ?
@@ -37,6 +39,7 @@ const getGrid = () => {
             :
             grid[trgetIndex].mine === true ? gridField.surroundingMines = currentSurroundingMines + 1 : gridField.surroundingMines = currentSurroundingMines;
     });
+
 
 
     // grid.forEach(gridField => {
