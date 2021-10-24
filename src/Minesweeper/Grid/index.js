@@ -16,8 +16,9 @@ const Grid = () => {
                 key={gridField.id}
                 id={gridField.id}
                 mine={gridField.mine}
+                coordinates={gridField.coordinates}
                 surroundingMines={gridField.surroundingMines}
-                reviled={gridField.reviled}
+                revealed={gridField.revealed}
                 markedAsMine={gridField.markedAsMine}
             />))}
 

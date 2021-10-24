@@ -13,8 +13,8 @@ const getGrid = () => {
         grid.push(
             {
                 id: i,
-                reviled: false,
-                mine: !!`${Math.random() > 0.8 ? 1 : ""}`,
+                revealed: false,
+                mine: !!`${Math.random() > 0.9 ? 1 : ""}`,
                 markedAsMine: false,
                 surroundingMines: "auto",
                 coordinates:
@@ -31,6 +31,7 @@ const getGrid = () => {
         var currentSurroundingMines = 0;
         const currentColumn = gridField.coordinates.column;
         const currentRow = gridField.coordinates.row;
+        const incrementCurrentSurroundingMines = () => currentSurroundingMines = currentSurroundingMines + 1;
 
         const determiningFields = [
             gridField => gridField.coordinates.column === currentColumn - 1 && gridField.coordinates.row === currentRow - 1,
@@ -44,13 +45,8 @@ const getGrid = () => {
         ];
 
         determiningFields.forEach(determiningField => {
-            const trgetIndex = grid.findIndex(determiningField);
-
-            trgetIndex === -1
-                ?
-                gridField.surroundingMines = currentSurroundingMines
-                :
-                grid[trgetIndex].mine === true ? currentSurroundingMines = currentSurroundingMines + 1 : currentSurroundingMines = currentSurroundingMines;
+            const targetIndex = grid.findIndex(determiningField);
+            targetIndex !== -1 && grid[targetIndex].mine === true && incrementCurrentSurroundingMines();
         });
         gridField.surroundingMines = currentSurroundingMines;
     });
