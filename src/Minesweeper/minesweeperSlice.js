@@ -6,11 +6,16 @@ const minesweeperSlice = createSlice(
         name: 'minesweeper',
         initialState: {
             grid: getGrid(),
+            gameOver: false,
         },
 
         reducers: {
             setGrid: (state, payload) => {
                 state.grid = payload;
+            },
+            checkIfGameOver: (state, { payload: id }) => {
+                const index = state.grid.findIndex(field => field.id === id);
+                state.grid[index].mine === true && (state.gameOver = true);
             },
             setRevealed: (state, { payload: id }) => {
                 const index = state.grid.findIndex(field => field.id === id);
@@ -40,6 +45,7 @@ const minesweeperSlice = createSlice(
         },
     });
 
-export const { setGrid, setRevealed, setMarkedAsMine, revealSurroundingFields } = minesweeperSlice.actions;
+export const { setGrid, checkIfGameOver, setRevealed, setMarkedAsMine, revealSurroundingFields } = minesweeperSlice.actions;
 export const selectGrid = state => state.minesweeper.grid;
+export const selectGameOver = state => state.minesweeper.gameOver;
 export default minesweeperSlice.reducer;

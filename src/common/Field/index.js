@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setRevealed, setMarkedAsMine, revealSurroundingFields } from "./../../Minesweeper/minesweeperSlice";
+import { setRevealed, setMarkedAsMine, revealSurroundingFields, checkIfGameOver } from "./../../Minesweeper/minesweeperSlice";
 
 const Field = ({ id, mine, coordinates, revealed, markedAsMine, surroundingMines }) => {
 
@@ -9,6 +9,7 @@ const Field = ({ id, mine, coordinates, revealed, markedAsMine, surroundingMines
     const clickHandler = (event) => {
         if (event.type === 'click') {
             event.preventDefault();
+            dispatch(checkIfGameOver(id));
             dispatch(setRevealed(id));
             surroundingMines === 0 && dispatch(revealSurroundingFields(coordinates));
         } else if (event.type === 'contextmenu') {
