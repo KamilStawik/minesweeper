@@ -16,6 +16,14 @@ const minesweeperSlice = createSlice(
             checkIfGameOver: (state, { payload: id }) => {
                 const index = state.grid.findIndex(field => field.id === id);
                 state.grid[index].mine === true && (state.gameOver = true);
+
+                const minesQuantity = 5;
+                var fieldsRevealed = 0;
+
+                state.grid.forEach(field => {
+                    field.revealed === true && (fieldsRevealed = fieldsRevealed + 1);
+                });
+                fieldsRevealed === state.grid.length - minesQuantity && console.log("Wygrałeś!!!");
             },
             setRevealed: (state, { payload: id }) => {
                 const index = state.grid.findIndex(field => field.id === id);
