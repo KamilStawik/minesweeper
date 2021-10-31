@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import Grid from "./Grid"
 import { selectGameOver } from "./minesweeperSlice";
+import TopBar from "./TopBar";
 
 const Minesweeper = () => {
 
@@ -9,6 +10,7 @@ const Minesweeper = () => {
 
     return (
         <>
+            <TopBar />
             {gameOver === false && <Grid />}
             {gameOver === true && "PRZEGRAŁEŚ !!!"}
         </>
