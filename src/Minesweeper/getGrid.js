@@ -14,7 +14,7 @@ const getGrid = () => {
             {
                 id: i,
                 revealed: false,
-                mine: !!`${Math.random() > 0.9 ? 1 : ""}`,
+                mine: Math.random(),
                 markedAsMine: false,
                 surroundingMines: "auto",
                 coordinates:
@@ -25,6 +25,26 @@ const getGrid = () => {
             }
         );
     }
+
+    var minesIndexs = [];
+
+    for (var j = 0; j < 5; j++) {
+
+        var max = grid[0].mine;
+        var maxIndex = 0;
+
+        for (var k = 1; k < grid.length; k++) {
+            if (grid[k].mine > max && grid[k].mine !== true) {
+                maxIndex = k;
+                max = grid[k].mine;
+            }
+        }
+        grid[maxIndex].mine = 0;
+        minesIndexs.push(maxIndex);
+    }
+    console.log(minesIndexs);
+
+    grid.map((field) => minesIndexs.includes(field.id) ? field.mine = true : field.mine = false);
 
     grid.forEach(gridField => {
 
