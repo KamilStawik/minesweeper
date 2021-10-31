@@ -5,5 +5,5 @@ export const GridWrapper = styled.div`
     height: 500px;
     display: grid;
     grid-gap: 2px;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 `;

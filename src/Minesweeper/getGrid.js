@@ -1,13 +1,29 @@
-const getGrid = (gridSize) => {
+const getGrid = (difficultyLevel) => {
 
     const grid = [];
-    const fieldsQuantity = gridSize === "small" ? 25 : 50;
+
+    let fieldsQuantity = 0;
+    let minesQuantity = 0;
+    let columnsQuantity = 0;
+
+    switch (difficultyLevel) {
+        case 'beginner':
+            fieldsQuantity = 64;
+            minesQuantity = 10;
+            columnsQuantity = 8;
+            break;
+        case 'intermediate':
+            fieldsQuantity = 256;
+            minesQuantity = 40;
+            columnsQuantity = 16;
+            break;
+    }
 
     const initiateGrid = () => {
         for (var i = 0; i < fieldsQuantity; i++) {
 
-            var column = (i === 0 ? 1 : (column === 5 ? 1 : column = column + 1));
-            var row = (i === 0 ? 1 : (i % 5 === 0 ? row = row + 1 : row));
+            var column = (i === 0 ? 1 : (column === columnsQuantity ? 1 : column = column + 1));
+            var row = (i === 0 ? 1 : (i % columnsQuantity === 0 ? row = row + 1 : row));
 
             grid.push(
                 {
@@ -26,9 +42,8 @@ const getGrid = (gridSize) => {
         }
     };
 
-    const setMinesOnGrid = (gridSize) => {
+    const setMinesOnGrid = () => {
 
-        const minesQuantity = gridSize === "small" ? 5 : 10;
         var minesIndexs = [];
 
         for (var j = 0; j < minesQuantity; j++) {
@@ -76,7 +91,7 @@ const getGrid = (gridSize) => {
     };
 
     initiateGrid();
-    setMinesOnGrid(gridSize);
+    setMinesOnGrid();
     setSurroundingMinesNumber();
 
     console.log(grid);

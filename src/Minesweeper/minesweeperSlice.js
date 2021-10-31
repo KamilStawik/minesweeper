@@ -5,7 +5,8 @@ const minesweeperSlice = createSlice(
     {
         name: 'minesweeper',
         initialState: {
-            grid: getGrid("small"),
+            difficultyLevel: "intermediate",
+            grid: getGrid("beginner"),
             gameOver: false,
         },
 
