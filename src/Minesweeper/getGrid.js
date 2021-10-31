@@ -17,7 +17,7 @@ const getGrid = (difficultyLevel) => {
             minesQuantity = 40;
             columnsQuantity = 16;
             break;
-    }
+    };
 
     const initiateGrid = () => {
         for (var i = 0; i < fieldsQuantity; i++) {

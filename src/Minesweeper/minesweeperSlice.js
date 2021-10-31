@@ -7,6 +7,7 @@ const minesweeperSlice = createSlice(
         initialState: {
             difficultyLevel: "intermediate",
             grid: getGrid("beginner"),
+            flaggedFieldsQuantity: 0,
             gameOver: false,
         },
 
@@ -32,7 +33,14 @@ const minesweeperSlice = createSlice(
             },
             setMarkedAsMine: (state, { payload: id }) => {
                 const index = state.grid.findIndex(field => field.id === id);
-                state.grid[index].markedAsMine = !state.grid[index].markedAsMine;
+                switch (state.grid[index].markedAsMine) {
+                    case false:
+                        state.grid[index].markedAsMine = true;
+                        state.flaggedFieldsQuantity = state.flaggedFieldsQuantity + 1;
+                        break;
+                    case true:
+                        state.grid[index].markedAsMine = false;
+                }
             },
             revealSurroundingFields: (state, { payload }) => {
                 const dependentFields = [
@@ -50,11 +58,12 @@ const minesweeperSlice = createSlice(
                     state.grid[targetIndex] && (state.grid[targetIndex].revealed = true);
                 });
             },
-
         },
     });
 
 export const { setGrid, checkIfGameOver, setRevealed, setMarkedAsMine, revealSurroundingFields } = minesweeperSlice.actions;
 export const selectGrid = state => state.minesweeper.grid;
+export const selectDifficultyLevel = state => state.minesweeper.difficultyLevel;
 export const selectGameOver = state => state.minesweeper.gameOver;
+export const selectFlaggedFieldsQuantity = state => state.minesweeper.flaggedFieldsQuantity;
 export default minesweeperSlice.reducer;
