@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setMarkedAsMine, revealSurroundingFields, leftClick } from "./../../Minesweeper/minesweeperSlice";
+import { setMarkedAsMine, revealSurroundingFields, leftClick } from "../../minesweeperSlice";
 
 const Field = ({ id, mine, coordinates, revealed, markedAsMine, surroundingMines }) => {
 
@@ -22,9 +22,11 @@ const Field = ({ id, mine, coordinates, revealed, markedAsMine, surroundingMines
     }, [revealed]);
 
     return (
-
-        <button onClick={clickHandler} onContextMenu={clickHandler}> {revealed && surroundingMines} {revealed && mine && "💣"} {markedAsMine && "🚩"}</button>
-
+        <button onClick={clickHandler} onContextMenu={clickHandler}>
+            {revealed && surroundingMines}
+            {revealed && mine && "💣"}
+            {markedAsMine && "🚩"}
+        </button>
     );
 };
 
