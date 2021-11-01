@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import { GridWrapper } from "./styled";
-import Field from "../../common/Field";
+import Field from "./Field";
 import { selectGrid } from "../minesweeperSlice";
 
 const Grid = () => {
@@ -8,9 +8,7 @@ const Grid = () => {
     const grid = useSelector(selectGrid);
 
     return (
-
         <GridWrapper>
-
             {grid.map(gridField =>
             (<Field
                 key={gridField.id}
@@ -21,9 +19,7 @@ const Grid = () => {
                 revealed={gridField.revealed}
                 markedAsMine={gridField.markedAsMine}
             />))}
-
         </GridWrapper>
-
     );
 };
 

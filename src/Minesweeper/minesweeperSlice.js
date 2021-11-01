@@ -44,7 +44,7 @@ const minesweeperSlice = createSlice(
                     case true:
                         state.grid[index].markedAsMine = false;
                         state.flaggedFieldsQuantity = state.flaggedFieldsQuantity - 1;
-                }
+                };
             },
             revealSurroundingFields: (state, { payload }) => {
                 const dependentFields = [

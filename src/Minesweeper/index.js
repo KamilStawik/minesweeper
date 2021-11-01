@@ -7,7 +7,6 @@ const Minesweeper = () => {
 
     const gameStatus = useSelector(selectGameStatus);
 
-
     return (
         <>
             <TopBar />
