@@ -7,7 +7,7 @@ const useTimer = (gameStatus) => {
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            gameStatus === "gameIsOn" && setActualTime(actualTime => actualTime + 0.1);
+            gameStatus === "gameIsOn" && setActualTime(PreviousActualTime => PreviousActualTime + 0.1);
         }, 100);
         return () => {
             clearInterval(intervalId);

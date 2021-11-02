@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { newGameButtonClick, selectGameStatus } from "./../../minesweeperSlice";
+import { newGameButtonClick, selectGameStatus, setMarkedAsMine } from "./../../minesweeperSlice";
 import useTimer from "./useTimer";
 
 const Timer = () => {
@@ -10,7 +10,7 @@ const Timer = () => {
     return (
         <>
             {useTimer(gameStatus)}
-            <button onClick={() => dispatch(newGameButtonClick)}>
+            <button onClick={() => dispatch(newGameButtonClick())}>
                 Czas start / stop
             </button>
         </>
