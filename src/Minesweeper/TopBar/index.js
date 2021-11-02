@@ -1,11 +1,12 @@
-import { useSelector } from "react-redux";
-import { selectDifficultyLevel, selectFlaggedFieldsQuantity, selectGameStatus } from "../minesweeperSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { newGameButtonClick, selectDifficultyLevel, selectFlaggedFieldsQuantity, selectGameStatus } from "../minesweeperSlice";
 import Timer from "./Timer";
 
 const TopBar = () => {
     const gameStatus = useSelector(selectGameStatus);
     const difficultyLevel = useSelector(selectDifficultyLevel);
     const flaggedFieldsQuantity = useSelector(selectFlaggedFieldsQuantity);
+    const dispatch = useDispatch();
     let minesQuantity = 0;
 
     switch (difficultyLevel) {
@@ -22,7 +23,10 @@ const TopBar = () => {
     return (
         <div>
             mines left: {minesLeft}
-            {gameStatus === "gameIsOn" && <Timer />}
+            <button onClick={() => dispatch(newGameButtonClick())}>
+                Czas start / stop
+            </button>
+            <Timer />
         </div>
     );
 };

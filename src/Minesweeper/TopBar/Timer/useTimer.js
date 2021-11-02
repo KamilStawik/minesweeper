@@ -12,7 +12,7 @@ const useTimer = (gameStatus) => {
         return () => {
             clearInterval(intervalId);
         };
-    }, []);
+    }, [gameStatus]);
 
     return actualTime.toFixed(1);
 };
