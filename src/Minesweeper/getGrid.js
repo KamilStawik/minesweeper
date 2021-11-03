@@ -1,23 +1,14 @@
-const getGrid = (difficultyLevel) => {
+import { difficultyLevels } from "./consts";
+
+const getGrid = (difficulty) => {
 
     const grid = [];
 
-    let fieldsQuantity = 0;
-    let minesQuantity = 0;
-    let columnsQuantity = 0;
+    const difficultyLevelsIndex = difficultyLevels.findIndex(difficultyLevel => difficultyLevel.name === difficulty);
 
-    switch (difficultyLevel) {
-        case 'beginner':
-            fieldsQuantity = 64;
-            minesQuantity = 10;
-            columnsQuantity = 8;
-            break;
-        case 'intermediate':
-            fieldsQuantity = 256;
-            minesQuantity = 40;
-            columnsQuantity = 16;
-            break;
-    };
+    const fieldsQuantity = difficultyLevels[difficultyLevelsIndex].fields;
+    const minesQuantity = difficultyLevels[difficultyLevelsIndex].minesQuantity;
+    const columnsQuantity = difficultyLevels[difficultyLevelsIndex].columns;
 
     const initiateGrid = () => {
         for (var i = 0; i < fieldsQuantity; i++) {
