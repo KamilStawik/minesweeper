@@ -31,6 +31,7 @@ const minesweeperSlice = createSlice(
             newGameButtonClick: (state) => {
                 state.gameStatus = "initial";
                 state.grid = getGrid(state.difficultyLevel);
+                state.flaggedFieldsQuantity = 0;
             },
             setMarkedAsMine: (state, { payload: id }) => {
                 const index = state.grid.findIndex(field => field.id === id);

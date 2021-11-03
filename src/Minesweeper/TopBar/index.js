@@ -1,22 +1,15 @@
 import { useSelector, useDispatch } from "react-redux";
-import { newGameButtonClick, selectDifficultyLevel, selectFlaggedFieldsQuantity, selectGameStatus } from "../minesweeperSlice";
+import { newGameButtonClick, selectDifficultyLevel, selectFlaggedFieldsQuantity } from "../minesweeperSlice";
+import { difficultyLevels } from "../consts";
 import Timer from "./Timer";
 
 const TopBar = () => {
-    const gameStatus = useSelector(selectGameStatus);
-    const difficultyLevel = useSelector(selectDifficultyLevel);
+    const difficulty = useSelector(selectDifficultyLevel);
     const flaggedFieldsQuantity = useSelector(selectFlaggedFieldsQuantity);
     const dispatch = useDispatch();
-    let minesQuantity = 0;
 
-    switch (difficultyLevel) {
-        case 'beginner':
-            minesQuantity = 10;
-            break;
-        case 'intermediate':
-            minesQuantity = 40;
-            break;
-    };
+    const difficultyLevelsIndex = difficultyLevels.findIndex(difficultyLevel => difficultyLevel.name === difficulty);
+    const minesQuantity = difficultyLevels[difficultyLevelsIndex].minesQuantity;
 
     const minesLeft = minesQuantity - flaggedFieldsQuantity;
 
