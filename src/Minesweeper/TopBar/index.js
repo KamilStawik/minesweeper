@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { newGameButtonClick, selectDifficultyLevel, selectFlaggedFieldsQuantity } from "../minesweeperSlice";
 import { difficultyLevels } from "../consts";
+import { TopBarWrapper } from "./stylex";
 import Timer from "./Timer";
 
 const TopBar = () => {
@@ -14,13 +15,13 @@ const TopBar = () => {
     const minesLeft = minesQuantity - flaggedFieldsQuantity;
 
     return (
-        <div>
+        <TopBarWrapper>
             mines left: {minesLeft}
             <button onClick={() => dispatch(newGameButtonClick())}>
                 Czas start / stop
             </button>
             <Timer />
-        </div>
+        </TopBarWrapper>
     );
 };
 
