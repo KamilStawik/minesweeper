@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { difficultyLevels } from "./consts";
 import getGrid from "./getGrid";
 
 const minesweeperSlice = createSlice(
@@ -18,15 +19,8 @@ const minesweeperSlice = createSlice(
                 state.grid[index].revealed = true;
                 state.grid[index].mine === true && (state.gameStatus = "lost");
 
-                let minesQuantity = 0;
-                switch (state.difficultyLevel) {
-                    case 'beginner':
-                        minesQuantity = 10;
-                        break;
-                    case 'intermediate':
-                        minesQuantity = 40;
-                        break;
-                };
+                const difficultyLevelsIndex = difficultyLevels.findIndex(difficultyLevel => difficultyLevel.name === state.difficultyLevel)
+                let minesQuantity = difficultyLevels[difficultyLevelsIndex].minesQuantity;
 
                 let fieldsRevealed = 0;
                 state.grid.forEach(field => {
