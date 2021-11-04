@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
     margin: 100px auto;
-    max-width: 600px;
+    width: 376px;
     padding: 20px;
     border-radius: 10px;
     background-color: ${({ theme }) => theme.colors.mainLight};
