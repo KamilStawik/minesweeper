@@ -7,7 +7,7 @@ const Timer = () => {
 
     return (
         <>
-            {useTimer(gameStatus)}
+            ⏲️:{useTimer(gameStatus)}
         </>
     );
 };
