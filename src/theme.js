@@ -1,7 +1,9 @@
 export const theme = {
     colors: {
         mainDark: "#1e2832",
-        mainLight: "#c8c8dc",
+        mainLight: "#cccccc",
+        darkBorder: "#555555",
+        lightBorder: "#eeeeee",
     },
 
     breakPoints: {
