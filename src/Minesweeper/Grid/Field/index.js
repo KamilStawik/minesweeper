@@ -23,7 +23,12 @@ const Field = ({ id, mine, coordinates, revealed, markedAsMine, surroundingMines
     }, [revealed]);
 
     return (
-        <StyledField revealed={revealed} onClick={clickHandler} onContextMenu={clickHandler}>
+        <StyledField
+            revealed={revealed}
+            surroundingMines={surroundingMines}
+            onClick={clickHandler}
+            onContextMenu={clickHandler}
+        >
             {revealed && (surroundingMines === 0 ? "" : surroundingMines)}
             {revealed && mine && "💣"}
             {markedAsMine && "🚩"}

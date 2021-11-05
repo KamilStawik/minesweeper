@@ -5,6 +5,16 @@ export const theme = {
         darkBorder: "#555555",
         semiDarkBorder: "#888888",
         lightBorder: "#eeeeee",
+        surroundingMines: {
+            one: "blue",
+            two: "green",
+            three: "red",
+            four: "purple",
+            five: "maroon",
+            six: "turquoise",
+            seven: "black",
+            eight: "grey",
+        },
     },
 
     breakPoints: {
