@@ -25,13 +25,13 @@ const Field = ({ id, mine, coordinates, revealed, markedAsMine, surroundingMines
 
     return (
         <StyledField
-            disabled={gameStatus === "lost"}
+            mine={mine}
             revealed={revealed}
             surroundingMines={surroundingMines}
-            onClick={clickHandler}
-            onContextMenu={clickHandler}
+            onClick={gameStatus !== "lost" && clickHandler}
+            onContextMenu={gameStatus !== "lost" && clickHandler}
         >
-            {revealed && (surroundingMines === 0 ? "" : surroundingMines)}
+            {revealed && mine === false && (surroundingMines === 0 ? "" : surroundingMines)}
             {revealed && mine && "💣"}
             {markedAsMine && "🚩"}
         </StyledField>

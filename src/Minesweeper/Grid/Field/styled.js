@@ -42,4 +42,9 @@ export const StyledField = styled.button`
     ${({ surroundingMines }) => surroundingMines === 8 && css`
         color: ${({ theme }) => theme.colors.surroundingMines.eight};
     `}
+
+    ${({ mine, revealed }) => mine && revealed && css`
+        color: black;
+        background-color: red;
+    `}
 `;

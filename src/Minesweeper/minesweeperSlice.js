@@ -19,6 +19,11 @@ const minesweeperSlice = createSlice(
                 state.grid[index].revealed = true;
                 state.grid[index].mine === true && (state.gameStatus = "lost");
 
+                if (state.gameStatus === "lost") {
+                    state.grid.forEach(field => {
+                        field.mine === true && (field.revealed = true);
+                    })
+                };
                 const difficultyLevelsIndex = difficultyLevels.findIndex(difficultyLevel => difficultyLevel.name === state.difficultyLevel)
                 let minesQuantity = difficultyLevels[difficultyLevelsIndex].minesQuantity;
 
