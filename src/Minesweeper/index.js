@@ -14,7 +14,7 @@ const Minesweeper = () => {
             {gameStatus === "initial" && <Grid />}
             {gameStatus === "readyToStart" && <Grid />}
             {gameStatus === "gameIsOn" && <Grid />}
-            {gameStatus === "lost" && "PRZEGRAŁEŚ !!!"}
+            {gameStatus === "lost" && <Grid />}
             {gameStatus === "won" && "WYGRAŁEŚ !!!"}
         </Wrapper >
     );
