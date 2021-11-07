@@ -44,8 +44,12 @@ export const StyledField = styled.button`
         color: ${({ theme }) => theme.colors.surroundingMines.eight};
     `}
 
-    ${({ mine, revealed }) => mine && revealed && css`
+    ${({ mine, lost }) => mine && lost && css`
         color: black;
         background-color: red;
+    `}
+    ${({ mine, won }) => mine && won && css`
+        color: black;
+        background-color: green;
     `}
 `;
