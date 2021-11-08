@@ -85,7 +85,6 @@ const getGrid = (difficulty) => {
     setMinesOnGrid();
     setSurroundingMinesNumber();
 
-    console.log(grid);
     return (grid);
 };
 

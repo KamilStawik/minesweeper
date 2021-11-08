@@ -21,6 +21,7 @@ const Field = ({ id, mine, coordinates, revealed, markedAsMine, surroundingMines
 
     useEffect(() => {
         revealed === true && surroundingMines === 0 && dispatch(revealSurroundingFields(coordinates));
+        // eslint-disable-next-line
     }, [revealed]);
 
     return (

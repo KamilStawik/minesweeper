@@ -41,6 +41,7 @@ const minesweeperSlice = createSlice(
             },
             setMarkedAsMine: (state, { payload: id }) => {
                 const index = state.grid.findIndex(field => field.id === id);
+                // eslint-disable-next-line
                 switch (state.grid[index].markedAsMine) {
                     case false:
                         state.grid[index].markedAsMine = true;
