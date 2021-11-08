@@ -20,7 +20,7 @@ const minesweeperSlice = createSlice(
                 state.grid[index].mine === true && (state.gameStatus = "lost");
 
                 const difficultyLevelsIndex = difficultyLevels.findIndex(difficultyLevel => difficultyLevel.name === state.difficultyLevel)
-                let minesQuantity = difficultyLevels[difficultyLevelsIndex].minesQuantity;
+                const minesQuantity = difficultyLevels[difficultyLevelsIndex].minesQuantity;
 
                 let fieldsRevealed = 0;
                 state.grid.forEach(field => {
@@ -31,7 +31,7 @@ const minesweeperSlice = createSlice(
                 if (state.gameStatus === "lost" || state.gameStatus === "won") {
                     state.grid.forEach(field => {
                         field.mine === true && (field.revealed = true);
-                    })
+                    });
                 };
             },
             newGameButtonClick: (state) => {
@@ -71,7 +71,14 @@ const minesweeperSlice = createSlice(
         },
     });
 
-export const { checkIfGameOver, setRevealed, newGameButtonClick, setMarkedAsMine, revealSurroundingFields, leftClick } = minesweeperSlice.actions;
+export const {
+    checkIfGameOver,
+    setRevealed,
+    newGameButtonClick,
+    setMarkedAsMine,
+    revealSurroundingFields,
+    leftClick
+} = minesweeperSlice.actions;
 export const selectGrid = state => state.minesweeper.grid;
 export const selectDifficultyLevel = state => state.minesweeper.difficultyLevel;
 export const selectGameStatus = state => state.minesweeper.gameStatus;

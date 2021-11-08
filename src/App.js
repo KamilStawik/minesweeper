@@ -10,6 +10,6 @@ function App() {
       <GlobalStyle />
     </ThemeProvider>
   );
-}
+};
 
 export default App;
