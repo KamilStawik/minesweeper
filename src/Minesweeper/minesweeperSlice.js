@@ -26,7 +26,7 @@ const minesweeperSlice = createSlice(
                 state.grid.forEach(field => {
                     field.revealed === true && (fieldsRevealed = fieldsRevealed + 1);
                 });
-                fieldsRevealed === state.grid.length - minesQuantity && (state.gameStatus = "won");
+                fieldsRevealed === state.grid.length - minesQuantity && state.gameStatus !== "lost" && (state.gameStatus = "won");
 
                 if (state.gameStatus === "lost" || state.gameStatus === "won") {
                     state.grid.forEach(field => {
