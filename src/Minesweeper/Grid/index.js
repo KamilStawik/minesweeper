@@ -1,10 +1,9 @@
 import { useSelector } from "react-redux"
 import { GridWrapper } from "./styled";
 import Field from "./Field";
-import { selectGrid } from "../minesweeperSlice";
+import { selectGrid } from "./../minesweeperSlice";
 
 const Grid = () => {
-
     const grid = useSelector(selectGrid);
 
     return (

@@ -1,10 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setMarkedAsMine, revealSurroundingFields, leftClick, selectGameStatus } from "../../minesweeperSlice";
+import { setMarkedAsMine, revealSurroundingFields, leftClick, selectGameStatus } from "./../../minesweeperSlice";
 import { StyledField } from "./styled";
 
 const Field = ({ id, mine, coordinates, revealed, markedAsMine, surroundingMines }) => {
-
     const dispatch = useDispatch();
     const gameStatus = useSelector(selectGameStatus);
 

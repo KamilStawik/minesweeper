@@ -12,7 +12,6 @@ const getGrid = (difficulty) => {
 
     const initiateGrid = () => {
         for (var i = 0; i < fieldsQuantity; i++) {
-
             var column = (i === 0 ? 1 : (column === columnsQuantity ? 1 : column = column + 1));
             var row = (i === 0 ? 1 : (i % columnsQuantity === 0 ? row = row + 1 : row));
 
@@ -30,27 +29,24 @@ const getGrid = (difficulty) => {
                     }
                 }
             );
-        }
+        };
     };
 
     const setMinesOnGrid = () => {
-
         var minesIndexs = [];
 
         for (var j = 0; j < minesQuantity; j++) {
-
             var max = grid[0].mine;
             var maxIndex = 0;
-
             for (var k = 1; k < grid.length; k++) {
                 if (grid[k].mine > max && grid[k].mine !== true) {
                     maxIndex = k;
                     max = grid[k].mine;
-                }
-            }
+                };
+            };
             grid[maxIndex].mine = 0;
             minesIndexs.push(maxIndex);
-        }
+        };
         grid.map((field) => minesIndexs.includes(field.id) ? field.mine = true : field.mine = false);
     };
 

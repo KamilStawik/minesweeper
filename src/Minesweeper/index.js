@@ -2,13 +2,11 @@ import Grid from "./Grid"
 import TopBar from "./TopBar";
 import { Wrapper } from "./styled";
 
-const Minesweeper = () => {
+const Minesweeper = () => (
+    <Wrapper>
+        <TopBar />
+        <Grid />
+    </Wrapper >
+);
 
-    return (
-        <Wrapper>
-            <TopBar />
-            <Grid />
-        </Wrapper >
-    );
-};
 export default Minesweeper;
