@@ -14,7 +14,7 @@ const Field = ({ id, mine, coordinates, revealed, markedAsMine, surroundingMines
             surroundingMines === 0 && dispatch(revealSurroundingFields(coordinates));
         } else if (event.type === 'contextmenu') {
             event.preventDefault();
-            dispatch(setMarkedAsMine(id));
+            revealed === false && dispatch(setMarkedAsMine(id));
         }
     };
 
