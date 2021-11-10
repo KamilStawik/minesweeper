@@ -1,13 +1,14 @@
 import { useSelector } from "react-redux"
 import { GridWrapper } from "./styled";
 import Field from "./Field";
-import { selectGrid } from "./../minesweeperSlice";
+import { selectDifficultyLevel, selectGrid } from "./../minesweeperSlice";
 
 const Grid = () => {
     const grid = useSelector(selectGrid);
+    const difficultyLevel = useSelector(selectDifficultyLevel);
 
     return (
-        <GridWrapper>
+        <GridWrapper difficultyLevel={difficultyLevel}>
             {grid.map(gridField =>
             (<Field
                 key={gridField.id}
