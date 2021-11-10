@@ -39,6 +39,13 @@ const minesweeperSlice = createSlice(
                 state.grid = getGrid(state.difficultyLevel);
                 state.flaggedFieldsQuantity = 0;
             },
+            setNewDifficultyLevel: (state, { payload }) => {
+                state.gameStatus = "initial";
+                console.log(payload);
+                state.difficultyLevel = payload;
+                state.grid = getGrid(state.difficultyLevel);
+                state.flaggedFieldsQuantity = 0;
+            },
             setMarkedAsMine: (state, { payload: id }) => {
                 const index = state.grid.findIndex(field => field.id === id);
                 // eslint-disable-next-line
@@ -75,6 +82,7 @@ export const {
     checkIfGameOver,
     setRevealed,
     newGameButtonClick,
+    setNewDifficultyLevel,
     setMarkedAsMine,
     revealSurroundingFields,
     leftClick

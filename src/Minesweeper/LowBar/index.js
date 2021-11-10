@@ -1,17 +1,15 @@
-import { useSelector, useDispatch } from "react-redux";
-import { selectDifficultyLevel, selectGameStatus } from "./../minesweeperSlice";
+import { useDispatch } from "react-redux";
 import { LowBarWrapper, DificultyLevelButton } from "./styled";
+import { setNewDifficultyLevel } from "./../minesweeperSlice";
 
 const LowBar = () => {
-    const difficulty = useSelector(selectDifficultyLevel);
-    const gameStatus = useSelector(selectGameStatus);
     const dispatch = useDispatch();
 
     return (
         <LowBarWrapper>
-            <DificultyLevelButton>Beginner</DificultyLevelButton>
-            <DificultyLevelButton>Intermediate</DificultyLevelButton>
-        </LowBarWrapper>
+            <DificultyLevelButton onClick={() => dispatch(setNewDifficultyLevel("beginner"))}>Beginner</DificultyLevelButton>
+            <DificultyLevelButton onClick={() => dispatch(setNewDifficultyLevel("intermediate"))}> Intermediate</DificultyLevelButton>
+        </LowBarWrapper >
     );
 };
 
