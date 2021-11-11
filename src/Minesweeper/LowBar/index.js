@@ -8,7 +8,8 @@ const LowBar = () => {
     return (
         <LowBarWrapper>
             <DificultyLevelButton onClick={() => dispatch(setNewDifficultyLevel("beginner"))}>Beginner</DificultyLevelButton>
-            <DificultyLevelButton onClick={() => dispatch(setNewDifficultyLevel("intermediate"))}> Intermediate</DificultyLevelButton>
+            <DificultyLevelButton onClick={() => dispatch(setNewDifficultyLevel("intermediate"))}>Intermediate</DificultyLevelButton>
+            <DificultyLevelButton onClick={() => dispatch(setNewDifficultyLevel("expert"))}>Expert</DificultyLevelButton>
         </LowBarWrapper >
     );
 };
