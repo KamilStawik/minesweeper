@@ -13,4 +13,7 @@ export const Wrapper = styled.div`
     ${({ difficultyLevel }) => difficultyLevel === "intermediate" && css`
         width: 560px;
     `};
+    ${({ difficultyLevel }) => difficultyLevel === "expert" && css`
+        width: 884px;
+    `};
 `;

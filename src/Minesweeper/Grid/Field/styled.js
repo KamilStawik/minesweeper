@@ -15,6 +15,10 @@ export const StyledField = styled.button`
         width: 32px;
         height: 32px;;
     `};
+    ${({ difficultyLevel }) => difficultyLevel === "expert" && css`
+        width: 28px;
+        height: 28px;;
+    `};
 
     ${({ revealed }) => revealed && css`
         filter: brightness(108%);

@@ -13,4 +13,7 @@ export const GridWrapper = styled.div`
     ${({ difficultyLevel }) => difficultyLevel === "intermediate" && css`
         grid-template-columns: repeat(16, 1fr);
     `};
+    ${({ difficultyLevel }) => difficultyLevel === "expert" && css`
+        grid-template-columns: repeat(30, 1fr);
+    `};
 `;
