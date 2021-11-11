@@ -11,6 +11,6 @@ export const Wrapper = styled.div`
     align-items: center;
 
     ${({ difficultyLevel }) => difficultyLevel === "intermediate" && css`
-        width: 684px;
+        width: 560px;
     `};
 `;

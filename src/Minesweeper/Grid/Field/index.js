@@ -1,11 +1,18 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setMarkedAsMine, revealSurroundingFields, leftClick, selectGameStatus } from "./../../minesweeperSlice";
+import {
+    setMarkedAsMine,
+    revealSurroundingFields,
+    leftClick,
+    selectGameStatus,
+    selectDifficultyLevel
+} from "./../../minesweeperSlice";
 import { StyledField } from "./styled";
 
 const Field = ({ id, mine, coordinates, revealed, markedAsMine, surroundingMines }) => {
     const dispatch = useDispatch();
     const gameStatus = useSelector(selectGameStatus);
+    const difficultyLevel = useSelector(selectDifficultyLevel);
 
     const clickHandler = (event) => {
         if (event.type === 'click') {
@@ -29,6 +36,7 @@ const Field = ({ id, mine, coordinates, revealed, markedAsMine, surroundingMines
             revealed={revealed}
             lost={gameStatus === "lost"}
             won={gameStatus === "won"}
+            difficultyLevel={difficultyLevel}
             surroundingMines={surroundingMines}
             onClick={gameStatus !== "lost" && gameStatus !== "won" ? clickHandler : undefined}
             onContextMenu={gameStatus !== "lost" && gameStatus !== "won" ? clickHandler : undefined}

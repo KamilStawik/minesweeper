@@ -11,6 +11,11 @@ export const StyledField = styled.button`
     border-bottom: 2px solid ${({ theme }) => theme.colors.darkBorder};
     border-left: 2px solid ${({ theme }) => theme.colors.lightBorder};
 
+    ${({ difficultyLevel }) => difficultyLevel === "intermediate" && css`
+        width: 32px;
+        height: 32px;;
+    `};
+
     ${({ revealed }) => revealed && css`
         filter: brightness(108%);
         border-top: 1px solid ${({ theme }) => theme.colors.semiDarkBorder};
