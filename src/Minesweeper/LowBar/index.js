@@ -1,15 +1,34 @@
-import { useDispatch } from "react-redux";
-import { LowBarWrapper, DificultyLevelButton } from "./styled";
-import { setNewDifficultyLevel } from "./../minesweeperSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { LowBarWrapper, DifficultyLevelButton } from "./styled";
+import { selectDifficultyLevel, setNewDifficultyLevel } from "./../minesweeperSlice";
 
 const LowBar = () => {
+    const difficultyLevel = useSelector(selectDifficultyLevel);
     const dispatch = useDispatch();
 
     return (
         <LowBarWrapper>
-            <DificultyLevelButton onClick={() => dispatch(setNewDifficultyLevel("beginner"))}>Beginner</DificultyLevelButton>
-            <DificultyLevelButton onClick={() => dispatch(setNewDifficultyLevel("intermediate"))}>Intermediate</DificultyLevelButton>
-            <DificultyLevelButton onClick={() => dispatch(setNewDifficultyLevel("expert"))}>Expert</DificultyLevelButton>
+            <DifficultyLevelButton
+                buttonDifficultyLevel={"beginner"}
+                difficultyLevel={difficultyLevel}
+                onClick={() => dispatch(setNewDifficultyLevel("beginner"))}
+            >
+                Beginner
+            </DifficultyLevelButton>
+            <DifficultyLevelButton
+                buttonDifficultyLevel={"intermediate"}
+                difficultyLevel={difficultyLevel}
+                onClick={() => dispatch(setNewDifficultyLevel("intermediate"))}
+            >
+                Intermediate
+            </DifficultyLevelButton>
+            <DifficultyLevelButton
+                buttonDifficultyLevel={"expert"}
+                difficultyLevel={difficultyLevel}
+                onClick={() => dispatch(setNewDifficultyLevel("expert"))}
+            >
+                Expert
+            </DifficultyLevelButton>
         </LowBarWrapper >
     );
 };

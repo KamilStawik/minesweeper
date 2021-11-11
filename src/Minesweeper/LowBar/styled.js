@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const LowBarWrapper = styled.div`
     width: 100%;
@@ -11,7 +11,7 @@ export const LowBarWrapper = styled.div`
     justify-content: space-between;
 `;
 
-export const DificultyLevelButton = styled.button`
+export const DifficultyLevelButton = styled.button`
     border: none;
     color: white;
     cursor: pointer;
@@ -19,4 +19,8 @@ export const DificultyLevelButton = styled.button`
     border-radius: 5px;
     padding: 6px;
     font-size: 16px;
+
+    ${({ buttonDifficultyLevel, difficultyLevel }) => buttonDifficultyLevel === difficultyLevel && css`
+        font-weight: bold;
+    `};
 `;
