@@ -13,4 +13,11 @@ export const difficultyLevels = [
         columns: 16,
         rows: 16,
     },
+    {
+        name: "expert",
+        minesQuantity: 99,
+        fields: 480,
+        columns: 30,
+        rows: 16,
+    },
 ];
