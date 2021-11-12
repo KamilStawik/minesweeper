@@ -9,38 +9,33 @@ const getGrid = (difficulty, id) => {
     const minesQuantity = difficultyLevels[difficultyLevelsIndex].minesQuantity;
     const columnsQuantity = difficultyLevels[difficultyLevelsIndex].columns;
 
-    const initiateGrid = () => {
+    const initiateGrid = (id) => {
         for (var i = 0; i < fieldsQuantity; i++) {
             var column = (i === 0 ? 1 : (column === columnsQuantity ? 1 : column = column + 1));
             var row = (i === 0 ? 1 : (i % columnsQuantity === 0 ? row = row + 1 : row));
 
-            grid.push(
-                {
-                    id: i,
-                },
-            );
-        };
-    };
-
-    const setGrid = () => {
-        for (var i = 0; i < fieldsQuantity; i++) {
-            var column = (i === 0 ? 1 : (column === columnsQuantity ? 1 : column = column + 1));
-            var row = (i === 0 ? 1 : (i % columnsQuantity === 0 ? row = row + 1 : row));
-
-            grid.push(
-                {
-                    id: i,
-                    revealed: false,
-                    mine: Math.random(),
-                    markedAsMine: false,
-                    surroundingMines: "auto",
-                    coordinates:
+            if (id !== undefined) {
+                grid.push(
                     {
-                        column,
-                        row,
+                        id: i,
+                        revealed: false,
+                        mine: Math.random(),
+                        markedAsMine: false,
+                        surroundingMines: "auto",
+                        coordinates:
+                        {
+                            column,
+                            row,
+                        }
                     }
-                }
-            );
+                )
+            } else {
+                grid.push(
+                    {
+                        id: i,
+                    },
+                );
+            };
         };
     };
 
@@ -112,10 +107,10 @@ const getGrid = (difficulty, id) => {
     };
 
     if (id === undefined) {
-        initiateGrid();
+        initiateGrid(id);
     }
     else {
-        setGrid();
+        initiateGrid(id);
         setStartingPiont();
         setMinesOnGrid();
         setSurroundingMinesNumber();
