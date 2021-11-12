@@ -42,7 +42,6 @@ const minesweeperSlice = createSlice(
             },
             setNewDifficultyLevel: (state, { payload }) => {
                 state.gameStatus = "initial";
-                console.log(payload);
                 state.difficultyLevel = payload;
                 state.grid = getGrid(state.difficultyLevel);
                 state.flaggedFieldsQuantity = 0;

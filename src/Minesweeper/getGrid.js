@@ -3,10 +3,8 @@ import { difficultyLevels } from "./consts";
 const getGrid = (difficulty, id) => {
 
     const grid = [];
-    console.log(id);
 
     const difficultyLevelsIndex = difficultyLevels.findIndex(difficultyLevel => difficultyLevel.name === difficulty);
-
     const fieldsQuantity = difficultyLevels[difficultyLevelsIndex].fields;
     const minesQuantity = difficultyLevels[difficultyLevelsIndex].minesQuantity;
     const columnsQuantity = difficultyLevels[difficultyLevelsIndex].columns;
