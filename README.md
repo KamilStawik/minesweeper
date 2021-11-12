@@ -17,6 +17,9 @@ I start this project few weeks ago and I am still working on it.
 Right now it has only few basic features.
 In the near future I will add two more difficulty levels, best times board and much more :)
 
+version: 0.2.0
+Now user won't pick mine field in first move. First field is always safe and surrounded by safe fields (like in classic minesweeper game).
+
 ## Technologies and conventions used in project:
 * HTML
 * CSS
