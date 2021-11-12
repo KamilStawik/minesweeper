@@ -3,6 +3,7 @@ import { difficultyLevels } from "./consts";
 const getGrid = (difficulty, id) => {
 
     const grid = [];
+    console.log(id);
 
     const difficultyLevelsIndex = difficultyLevels.findIndex(difficultyLevel => difficultyLevel.name === difficulty);
 
@@ -11,6 +12,19 @@ const getGrid = (difficulty, id) => {
     const columnsQuantity = difficultyLevels[difficultyLevelsIndex].columns;
 
     const initiateGrid = () => {
+        for (var i = 0; i < fieldsQuantity; i++) {
+            var column = (i === 0 ? 1 : (column === columnsQuantity ? 1 : column = column + 1));
+            var row = (i === 0 ? 1 : (i % columnsQuantity === 0 ? row = row + 1 : row));
+
+            grid.push(
+                {
+                    id: i,
+                },
+            );
+        };
+    };
+
+    const setGrid = () => {
         for (var i = 0; i < fieldsQuantity; i++) {
             var column = (i === 0 ? 1 : (column === columnsQuantity ? 1 : column = column + 1));
             var row = (i === 0 ? 1 : (i % columnsQuantity === 0 ? row = row + 1 : row));
@@ -99,10 +113,15 @@ const getGrid = (difficulty, id) => {
         });
     };
 
-    initiateGrid();
-    setStartingPiont();
-    setMinesOnGrid();
-    setSurroundingMinesNumber();
+    if (id === undefined) {
+        initiateGrid();
+    }
+    else {
+        setGrid();
+        setStartingPiont();
+        setMinesOnGrid();
+        setSurroundingMinesNumber();
+    };
 
     return (grid);
 };
