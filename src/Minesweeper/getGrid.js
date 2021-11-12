@@ -1,6 +1,6 @@
 import { difficultyLevels } from "./consts";
 
-const getGrid = (difficulty) => {
+const getGrid = (difficulty, id) => {
 
     const grid = [];
 
@@ -29,6 +29,28 @@ const getGrid = (difficulty) => {
                     }
                 }
             );
+        };
+    };
+
+    const setStartingPiont = () => {
+        const startingPiontIndex = grid.findIndex(field => field.id === id);
+
+        const surroundingFields = [
+            grid[startingPiontIndex - columnsQuantity - 1],
+            grid[startingPiontIndex - columnsQuantity],
+            grid[startingPiontIndex - columnsQuantity + 1],
+            grid[startingPiontIndex - 1],
+            grid[startingPiontIndex],
+            grid[startingPiontIndex + 1],
+            grid[startingPiontIndex + columnsQuantity - 1],
+            grid[startingPiontIndex + columnsQuantity],
+            grid[startingPiontIndex + columnsQuantity + 1],
+        ];
+
+        if (startingPiontIndex !== -1) {
+            surroundingFields.forEach(surroundingField => {
+                surroundingField && (surroundingField.mine = 0);
+            });
         };
     };
 
@@ -78,6 +100,7 @@ const getGrid = (difficulty) => {
     };
 
     initiateGrid();
+    setStartingPiont();
     setMinesOnGrid();
     setSurroundingMinesNumber();
 

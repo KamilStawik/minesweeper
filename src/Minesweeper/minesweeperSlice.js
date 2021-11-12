@@ -14,6 +14,7 @@ const minesweeperSlice = createSlice(
 
         reducers: {
             leftClick: (state, { payload: id }) => {
+                state.gameStatus === "initial" && (state.grid = getGrid(state.difficultyLevel, id));
                 state.gameStatus === "initial" && (state.gameStatus = "gameIsOn");
                 const index = state.grid.findIndex(field => field.id === id);
                 state.grid[index].revealed = true;
