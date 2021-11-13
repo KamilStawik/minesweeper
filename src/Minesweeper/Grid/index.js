@@ -18,6 +18,7 @@ const Grid = () => {
                 surroundingMines={gridField.surroundingMines}
                 revealed={gridField.revealed}
                 markedAsMine={gridField.markedAsMine}
+                markedAsQuestion={gridField.markedAsQuestion}
             />))}
         </GridWrapper>
     );

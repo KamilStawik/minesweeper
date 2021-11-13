@@ -21,6 +21,7 @@ const getGrid = (difficulty, id) => {
                         revealed: false,
                         mine: Math.random(),
                         markedAsMine: false,
+                        markedAsQuestion: false,
                         surroundingMines: "auto",
                         coordinates:
                         {
