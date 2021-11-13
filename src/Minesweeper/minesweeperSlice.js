@@ -66,17 +66,6 @@ const minesweeperSlice = createSlice(
                     state.grid[index].markedAsMine = false;
                     state.grid[index].markedAsQuestion = false;
                 };
-
-                // eslint-disable-next-line
-                // switch (state.grid[index].markedAsMine) {
-                //     case false:
-                //         state.grid[index].markedAsMine = true;
-                //         state.flaggedFieldsQuantity = state.flaggedFieldsQuantity + 1;
-                //         break;
-                //     case true:
-                //         state.grid[index].markedAsMine = false;
-                //         state.flaggedFieldsQuantity = state.flaggedFieldsQuantity - 1;
-                // };
             },
             revealSurroundingFields: (state, { payload }) => {
                 const dependentFields = [
