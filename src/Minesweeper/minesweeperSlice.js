@@ -49,16 +49,17 @@ const minesweeperSlice = createSlice(
             rightClick: (state, { payload: id }) => {
                 const index = state.grid.findIndex(field => field.id === id);
 
-                if (state.grid[index].markedAsMine === false) {
+                if (state.grid[index].markedAsMine === false && state.grid[index].markedAsQuestion === false) {
                     state.grid[index].markedAsMine = true;
                     state.flaggedFieldsQuantity = state.flaggedFieldsQuantity + 1;
-                } else if (state.grid[index].markedAsMine === true) {
+                } else if (state.grid[index].markedAsMine === true && state.grid[index].markedAsQuestion === false) {
+                    state.grid[index].markedAsMine = false;
                     state.grid[index].markedAsQuestion = true;
                     state.flaggedFieldsQuantity = state.flaggedFieldsQuantity - 1;
-                } else if (state.grid[index].markedAsQuestion === true) {
+                } else if (state.grid[index].markedAsMine === false && state.grid[index].markedAsQuestion === true) {
                     state.grid[index].markedAsMine = false;
                     state.grid[index].markedAsQuestion = false;
-                }
+                };
 
                 // eslint-disable-next-line
                 // switch (state.grid[index].markedAsMine) {
