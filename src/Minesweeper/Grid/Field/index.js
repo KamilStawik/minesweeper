@@ -43,8 +43,8 @@ const Field = ({ id, mine, coordinates, revealed, markedAsMine, markedAsQuestion
         >
             {revealed && mine === false && (surroundingMines === 0 ? "" : surroundingMines)}
             {revealed && mine && "💣"}
-            {markedAsMine && gameStatus === "gameIsOn" && "🚩"}
-            {markedAsQuestion && gameStatus === "gameIsOn" && "❓"}
+            {!revealed && markedAsMine && gameStatus === "gameIsOn" && "🚩"}
+            {!revealed && markedAsQuestion && gameStatus === "gameIsOn" && "❓"}
         </StyledField>
     );
 };
