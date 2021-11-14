@@ -17,7 +17,7 @@ const Field = ({ id, mine, coordinates, revealed, markedAsMine, markedAsQuestion
     const clickHandler = (event) => {
         if (event.type === 'click') {
             event.preventDefault();
-            dispatch(leftClick(id));
+            markedAsMine === false && dispatch(leftClick(id));
             surroundingMines === 0 && dispatch(revealSurroundingFields(coordinates));
         } else if (event.type === 'contextmenu') {
             event.preventDefault();

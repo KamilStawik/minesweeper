@@ -34,6 +34,7 @@ const getGrid = (difficulty, id) => {
                 grid.push(
                     {
                         id: i,
+                        markedAsMine: false,
                     },
                 );
             };
