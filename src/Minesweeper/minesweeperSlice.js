@@ -81,6 +81,8 @@ const minesweeperSlice = createSlice(
                 dependentFields.forEach(dependentField => {
                     const targetIndex = state.grid.findIndex(dependentField);
                     state.grid[targetIndex] && (state.grid[targetIndex].revealed = true);
+                    state.grid[targetIndex] && (state.grid[targetIndex].markedAsMine = false);
+                    state.grid[targetIndex] && (state.grid[targetIndex].markedAsQuestion = false);
                 });
             },
         },
