@@ -8,7 +8,6 @@ const minesweeperSlice = createSlice(
         initialState: {
             difficultyLevel: "beginner",
             grid: getGrid("beginner"),
-            flaggedFieldsQuantity: 0,
             gameStatus: "initial",
         },
 
@@ -22,7 +21,6 @@ const minesweeperSlice = createSlice(
 
                 if (state.grid[index].markedAsMine === true) {
                     state.grid[index].markedAsMine = false;
-                    state.flaggedFieldsQuantity = state.flaggedFieldsQuantity - 1;
                 };
                 state.grid[index].markedAsQuestion === true && (state.grid[index].markedAsQuestion = false);
 
@@ -44,24 +42,20 @@ const minesweeperSlice = createSlice(
             newGameButtonClick: (state) => {
                 state.gameStatus = "initial";
                 state.grid = getGrid(state.difficultyLevel);
-                state.flaggedFieldsQuantity = 0;
             },
             setNewDifficultyLevel: (state, { payload }) => {
                 state.gameStatus = "initial";
                 state.difficultyLevel = payload;
                 state.grid = getGrid(state.difficultyLevel);
-                state.flaggedFieldsQuantity = 0;
             },
             rightClick: (state, { payload: id }) => {
                 const index = state.grid.findIndex(field => field.id === id);
 
                 if (state.grid[index].markedAsMine === false && state.grid[index].markedAsQuestion === false) {
                     state.grid[index].markedAsMine = true;
-                    state.flaggedFieldsQuantity = state.flaggedFieldsQuantity + 1;
                 } else if (state.grid[index].markedAsMine === true && state.grid[index].markedAsQuestion === false) {
                     state.grid[index].markedAsMine = false;
                     state.grid[index].markedAsQuestion = true;
-                    state.flaggedFieldsQuantity = state.flaggedFieldsQuantity - 1;
                 } else if (state.grid[index].markedAsMine === false && state.grid[index].markedAsQuestion === true) {
                     state.grid[index].markedAsMine = false;
                     state.grid[index].markedAsQuestion = false;
@@ -100,5 +94,4 @@ export const {
 export const selectGrid = state => state.minesweeper.grid;
 export const selectDifficultyLevel = state => state.minesweeper.difficultyLevel;
 export const selectGameStatus = state => state.minesweeper.gameStatus;
-export const selectFlaggedFieldsQuantity = state => state.minesweeper.flaggedFieldsQuantity;
 export default minesweeperSlice.reducer;
