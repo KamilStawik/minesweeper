@@ -20,6 +20,9 @@ In the near future I will add question mark fields, best times board and much mo
 
 version: 0.2.0
 Now user won't pick mine field in first move. First field is always safe and surrounded by safe fields (like in classic minesweeper game).
+version: 0.3.0
+Now user can mark field as question by double right click.
+
 
 ## Technologies and conventions used in project:
 * HTML
