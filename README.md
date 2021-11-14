@@ -22,7 +22,9 @@ version: 0.2.0
 Now user won't pick mine field in first move. First field is always safe and surrounded by safe fields (like in classic minesweeper game).
 version: 0.3.0
 Now user can mark field as question by double right click.
-
+version: 0.3.0
+Now if field is marked as flag it can't be clicked.
+Some performance upgrade.
 
 ## Technologies and conventions used in project:
 * HTML
