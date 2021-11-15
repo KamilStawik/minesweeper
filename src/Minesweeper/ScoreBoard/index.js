@@ -1,13 +1,13 @@
-
+import { ScoreBoardWrapper, SectionHeader, BestTime } from "./styled";
 
 const ScoreBoard = () => {
 
     return (
         <>
-            <p>tablica wyników</p>
-            {/* <ScoreBoardWrapper>
-                tablica wyników
-            </ScoreBoardWrapper > */}
+            <ScoreBoardWrapper>
+                <SectionHeader>Your best time</SectionHeader>
+                <BestTime> best time</BestTime>
+            </ScoreBoardWrapper >
         </>
     );
 };
