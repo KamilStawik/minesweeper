@@ -87,13 +87,13 @@ const minesweeperSlice = createSlice(
             setBestTime: (state, { payload }) => {
                 switch (state.difficultyLevel) {
                     case "beginner":
-                        payload < state.bestTimes.beginner && (state.bestTimes.beginner = payload);
+                        (payload < state.bestTimes.beginner || state.bestTimes.beginner === 0) && (state.bestTimes.beginner = payload);
                         break;
                     case "intermediate":
-                        payload < state.bestTimes.intermediate && (state.bestTimes.intermediate = payload);
+                        (payload < state.bestTimes.intermediate || state.bestTimes.intermediate === 0) && (state.bestTimes.intermediate = payload);
                         break;
                     case "expert":
-                        payload < state.bestTimes.expert && (state.bestTimes.expert = payload);
+                        (payload < state.bestTimes.expert || state.bestTimes.expert === 0) && (state.bestTimes.expert = payload);
                         break;
                 };
             },
@@ -114,10 +114,15 @@ export const {
 export const selectGrid = state => state.minesweeper.grid;
 export const selectDifficultyLevel = state => state.minesweeper.difficultyLevel;
 export const selectGameStatus = state => state.minesweeper.gameStatus;
-export const selectBestTime = state => state.minesweeper.bestTimes.beginner;
+export const selectBestTime = state => {
+    switch (state.minesweeper.difficultyLevel) {
+        case "beginner":
+            return state.minesweeper.bestTimes.beginner;
+        case "intermediate":
+            return state.minesweeper.bestTimes.intermediate;
+        default:
+            return state.minesweeper.bestTimes.expert;
+    };
+};
 
-// (state.minesweeper.difficultyLevel === "beginer" ? state.minesweeper.bestTimes.beginner
-//     :
-//     (state.minesweeper.difficultyLevel === "intermediate" ? state.minesweeper.bestTimes.intermediate
-//         : state.minesweeper.bestTimes.expert));
 export default minesweeperSlice.reducer;
