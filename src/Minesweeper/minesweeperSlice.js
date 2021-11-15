@@ -9,6 +9,11 @@ const minesweeperSlice = createSlice(
             difficultyLevel: "beginner",
             grid: getGrid("beginner"),
             gameStatus: "initial",
+            bestTimes: {
+                beginner: 0,
+                intermediate: 0,
+                expert: 0,
+            }
         },
 
         reducers: {
@@ -79,6 +84,20 @@ const minesweeperSlice = createSlice(
                     state.grid[targetIndex] && (state.grid[targetIndex].markedAsQuestion = false);
                 });
             },
+            setBestTime: (state, { payload }) => {
+                switch (state.difficultyLevel) {
+                    case "beginner":
+                        payload < state.bestTimes.beginner && (state.bestTimes.beginner = payload);
+                        break;
+                    case "intermediate":
+                        payload < state.bestTimes.intermediate && (state.bestTimes.intermediate = payload);
+                        break;
+                    case "expert":
+                        payload < state.bestTimes.expert && (state.bestTimes.expert = payload);
+                        break;
+                };
+            },
+
         },
     });
 
@@ -89,9 +108,16 @@ export const {
     setNewDifficultyLevel,
     rightClick,
     revealSurroundingFields,
-    leftClick
+    leftClick,
+    setBestTime,
 } = minesweeperSlice.actions;
 export const selectGrid = state => state.minesweeper.grid;
 export const selectDifficultyLevel = state => state.minesweeper.difficultyLevel;
 export const selectGameStatus = state => state.minesweeper.gameStatus;
+export const selectBestTime = state => state.minesweeper.bestTimes.beginner;
+
+// (state.minesweeper.difficultyLevel === "beginer" ? state.minesweeper.bestTimes.beginner
+//     :
+//     (state.minesweeper.difficultyLevel === "intermediate" ? state.minesweeper.bestTimes.intermediate
+//         : state.minesweeper.bestTimes.expert));
 export default minesweeperSlice.reducer;
