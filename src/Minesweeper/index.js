@@ -4,6 +4,7 @@ import Grid from "./Grid"
 import TopBar from "./TopBar";
 import { Wrapper } from "./styled";
 import LowBar from "./LowBar";
+import ScoreBoard from "./ScoreBoard";
 
 const Minesweeper = () => {
 
@@ -14,6 +15,7 @@ const Minesweeper = () => {
             <TopBar />
             <Grid />
             <LowBar />
+            <ScoreBoard />
         </Wrapper >
     );
 };
