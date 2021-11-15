@@ -1,26 +1,31 @@
 import styled, { css } from 'styled-components';
 
-export const LowBarWrapper = styled.div`
-    width: 100%;
-    font-size: 20px;
-    padding: 10px;
-    margin-top: 12px;
-    border-radius: 0px 0px 10px 10px;
-    background-color: ${({ theme }) => theme.colors.mainDark};
-    display: flex;
-    justify-content: space-between;
+export const ScoreBoardWrapper = styled.section`
+    flex-basis: 300px;
+    padding: 20px;
+    border-radius: 10px;
+
+    ${({ difficultyLevel }) => difficultyLevel === "intermediate" && css`
+        width: 560px;
+    `};
+    ${({ difficultyLevel }) => difficultyLevel === "expert" && css`
+        width: 884px;
+    `};
 `;
 
-export const DifficultyLevelButton = styled.button`
-    border: none;
-    color: white;
-    cursor: pointer;
-    background-color: ${({ theme }) => theme.colors.topBarBackground};
-    border-radius: 5px;
+export const SectionHeader = styled.header`
+    font-size: 30px;
+    color: ${({ theme }) => theme.colors.mainLight};
+    font-weight: bold;
+    text-align: center;
     padding: 6px;
-    font-size: 16px;
+    border-bottom: 2px solid ${({ theme }) => theme.colors.mainLight};
+`;
 
-    ${({ buttonDifficultyLevel, difficultyLevel }) => buttonDifficultyLevel === difficultyLevel && css`
-        font-weight: bold;
-    `};
+export const BestTime = styled.span`
+    display: block;
+    font-size: 18px;
+    color: ${({ theme }) => theme.colors.mainLight};
+    text-align: center;
+    padding: 6px;
 `;
