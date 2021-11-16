@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { difficultyLevels } from "./consts";
 import getGrid from "./getGrid";
+import { getScoreBoardFromLocalStorage } from "./minesweeperLocalStorage";
 
 const minesweeperSlice = createSlice(
     {
@@ -9,11 +10,7 @@ const minesweeperSlice = createSlice(
             difficultyLevel: "beginner",
             grid: getGrid("beginner"),
             gameStatus: "initial",
-            bestTimes: {
-                beginner: 0,
-                intermediate: 0,
-                expert: 0,
-            }
+            bestTimes: getScoreBoardFromLocalStorage(),
         },
 
         reducers: {
@@ -124,5 +121,6 @@ export const selectBestTime = state => {
             return state.minesweeper.bestTimes.expert;
     };
 };
+export const selectBestTimes = state => state.minesweeper.bestTimes;
 
 export default minesweeperSlice.reducer;
