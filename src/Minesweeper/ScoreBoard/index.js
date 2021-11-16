@@ -4,7 +4,6 @@ import { selectBestTime } from "./../minesweeperSlice";
 
 const ScoreBoard = () => {
     const bestTime = useSelector(selectBestTime);
-    console.log(bestTime);
 
     return (
         <>
