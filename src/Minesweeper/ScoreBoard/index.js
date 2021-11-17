@@ -3,13 +3,15 @@ import { ScoreBoardWrapper, SectionHeader, BestTime } from "./styled";
 import { selectBestTime } from "./../minesweeperSlice";
 
 const ScoreBoard = () => {
-    const bestTime = useSelector(selectBestTime);
+    const bestTimes = useSelector(selectBestTime);
 
     return (
         <>
             <ScoreBoardWrapper>
                 <SectionHeader>Your best time</SectionHeader>
-                <BestTime> {bestTime}</BestTime>
+
+                {bestTimes.map(bestTime => (<BestTime> {bestTime}</BestTime>))}
+                {/* <BestTime> {bestTime}</BestTime> */}
             </ScoreBoardWrapper >
         </>
     );
