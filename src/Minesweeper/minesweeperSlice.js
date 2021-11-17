@@ -86,24 +86,20 @@ const minesweeperSlice = createSlice(
                     case "beginner":
                         state.bestTimes.beginner.push(payload);
                         state.bestTimes.beginner.sort((a, b) => a - b);
-                        state.bestTimes.beginner.includes(0) && state.bestTimes.beginner.shift();
                         state.bestTimes.beginner.length > 5 && state.bestTimes.beginner.pop();
                         break;
                     case "intermediate":
                         state.bestTimes.intermediate.push(payload);
                         state.bestTimes.intermediate.sort((a, b) => a - b);
-                        state.bestTimes.intermediate.includes(0) && state.bestTimes.intermediate.shift();
                         state.bestTimes.intermediate.length > 5 && state.bestTimes.intermediate.pop();
                         break;
                     case "expert":
                         state.bestTimes.expert.push(payload);
                         state.bestTimes.expert.sort((a, b) => a - b);
-                        state.bestTimes.expert.includes(0) && state.bestTimes.expert.shift();
                         state.bestTimes.expert.length > 5 && state.bestTimes.expert.pop();
                         break;
                 };
             },
-
         },
     });
 

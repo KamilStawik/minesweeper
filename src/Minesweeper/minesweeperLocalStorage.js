@@ -6,7 +6,7 @@ export const saveScoreBoardInLocalStorage = bestTimes =>
 export const getScoreBoardFromLocalStorage = () =>
     JSON.parse(localStorage.getItem(localStorageKey)) ||
     {
-        beginner: [0],
-        intermediate: [0],
-        expert: [0],
+        beginner: [],
+        intermediate: [],
+        expert: [],
     };
