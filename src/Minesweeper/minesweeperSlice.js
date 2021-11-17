@@ -80,6 +80,15 @@ const minesweeperSlice = createSlice(
                     state.grid[targetIndex] && (state.grid[targetIndex].markedAsMine = false);
                     state.grid[targetIndex] && (state.grid[targetIndex].markedAsQuestion = false);
                 });
+
+                const difficultyLevelsIndex = difficultyLevels.findIndex(difficultyLevel => difficultyLevel.name === state.difficultyLevel)
+                const minesQuantity = difficultyLevels[difficultyLevelsIndex].minesQuantity;
+
+                let fieldsRevealed = 0;
+                state.grid.forEach(field => {
+                    field.revealed === true && (fieldsRevealed = fieldsRevealed + 1);
+                });
+                fieldsRevealed === state.grid.length - minesQuantity && state.gameStatus !== "lost" && (state.gameStatus = "won");
             },
             setBestTime: (state, { payload }) => {
                 switch (state.difficultyLevel) {
