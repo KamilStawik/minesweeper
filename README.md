@@ -17,6 +17,17 @@ To run this project You need to allow emoji in Your browser.
 I start this project few weeks ago and I am still working on it.
 Right now it has only few basic features.
 
+## How to play
+
+To start game left click the field that You want to check or change difficulty level under the grid.
+U can't hit mine in Your first move. A timer will start counting the seconds of your game.
+If a number appears, it indicates the number of mines in the eight surrounding squares.
+If a square is blank, there are no mines within the eight squares surrounding it.
+Minesweeper is a game of deduction. If you guess where a mine is, right-click the square to place a flag on it marking it as a mine.
+Right-click a square twice to place a question mark on it if you think it might contain a bomb but you’re not sure.
+If you click a square and a bomb appears the game is over and You lost. Reveal all squares without a mine to win a game.
+All the hidden bombs are exposed if you hit a mine. Start a new game by clicking face over the grid, or change difficulty level under the grid.
+
 ### version: 0.2.0
 Now user won't pick mine field in first move. First field is always safe and surrounded by safe fields (like in classic minesweeper game).
 
