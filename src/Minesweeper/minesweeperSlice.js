@@ -84,13 +84,22 @@ const minesweeperSlice = createSlice(
             setBestTime: (state, { payload }) => {
                 switch (state.difficultyLevel) {
                     case "beginner":
-                        (payload < state.bestTimes.beginner || state.bestTimes.beginner === 0) && (state.bestTimes.beginner = payload);
+                        state.bestTimes.beginner.push(payload);
+                        state.bestTimes.beginner.sort((a, b) => a - b);
+                        state.bestTimes.beginner.includes(0) && state.bestTimes.beginner.shift();
+                        state.bestTimes.beginner.length > 5 && state.bestTimes.beginner.pop();
                         break;
                     case "intermediate":
-                        (payload < state.bestTimes.intermediate || state.bestTimes.intermediate === 0) && (state.bestTimes.intermediate = payload);
+                        state.bestTimes.intermediate.push(payload);
+                        state.bestTimes.intermediate.sort((a, b) => a - b);
+                        state.bestTimes.intermediate.includes(0) && state.bestTimes.intermediate.shift();
+                        state.bestTimes.intermediate.length > 5 && state.bestTimes.intermediate.pop();
                         break;
                     case "expert":
-                        (payload < state.bestTimes.expert || state.bestTimes.expert === 0) && (state.bestTimes.expert = payload);
+                        state.bestTimes.expert.push(payload);
+                        state.bestTimes.expert.sort((a, b) => a - b);
+                        state.bestTimes.expert.includes(0) && state.bestTimes.expert.shift();
+                        state.bestTimes.expert.length > 5 && state.bestTimes.expert.pop();
                         break;
                 };
             },
