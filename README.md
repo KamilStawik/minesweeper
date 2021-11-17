@@ -16,7 +16,6 @@ This is one of my favourite classic game - Minesweeper.
 To run this project You need to allow emoji in Your browser.
 I start this project few weeks ago and I am still working on it.
 Right now it has only few basic features.
-In the near future I will add question mark fields, best times board and much more :)
 
 ### version: 0.2.0
 Now user won't pick mine field in first move. First field is always safe and surrounded by safe fields (like in classic minesweeper game).
@@ -27,6 +26,10 @@ Now user can mark field as question by double right click.
 ### version: 0.4.0
 Now if field is marked as flag it can't be clicked.
 Some performance upgrade.
+
+### version: 0.5.0
+I've added Redux-Saga to my project.
+Best times are now kept in localStorage.
 
 ## Technologies and conventions used in project:
 * HTML
