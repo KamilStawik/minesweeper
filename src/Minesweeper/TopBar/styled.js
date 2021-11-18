@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import flag from './../icons/flag.png'
+import angryFace from './../icons/angryFace.png'
+import happyFace from './../icons/happyFace.png'
+import likeABossFace from './../icons/likeABossFace.png'
 
 export const TopBarWrapper = styled.div`
     width: 100%;
@@ -39,4 +42,27 @@ export const FlagIcon = styled.div`
     width: 24px;
     background-size: cover;
     background-position: center;
+`;
+
+const addStyleToFaceIcon = () =>
+    `   
+        width: 44px;
+        height: 44px;
+        background-size: cover;
+        background-position: center;
+    `;
+
+export const AngryFaceIcon = styled.div`
+    ${addStyleToFaceIcon()}
+	background-image: url(${angryFace});
+`;
+
+export const HappyFaceIcon = styled.div`
+    ${addStyleToFaceIcon()}
+	background-image: url(${happyFace});
+`;
+
+export const LikeABossFaceIcon = styled.div`
+    ${addStyleToFaceIcon()}
+	background-image: url(${likeABossFace});
 `;
