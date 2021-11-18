@@ -7,7 +7,7 @@ import {
     selectGameStatus,
     selectDifficultyLevel
 } from "./../../minesweeperSlice";
-import { StyledField, MineIcon } from "./styled";
+import { StyledField, MineIcon, FlagIcon, QuestionMark } from "./styled";
 
 const Field = ({ id, mine, coordinates, revealed, markedAsMine, markedAsQuestion, surroundingMines }) => {
     const dispatch = useDispatch();
@@ -43,8 +43,8 @@ const Field = ({ id, mine, coordinates, revealed, markedAsMine, markedAsQuestion
         >
             {revealed && mine === false && (surroundingMines === 0 ? "" : surroundingMines)}
             {revealed && mine && <MineIcon alt="💣" />}
-            {!revealed && markedAsMine && gameStatus === "gameIsOn" && "🚩"}
-            {!revealed && markedAsQuestion && gameStatus === "gameIsOn" && "❓"}
+            {!revealed && markedAsMine && gameStatus === "gameIsOn" && <FlagIcon alt="🚩" />}
+            {!revealed && markedAsQuestion && gameStatus === "gameIsOn" && <QuestionMark alt="❓" />}
         </StyledField>
     );
 };

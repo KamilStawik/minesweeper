@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 import mine from './../../icons/mine.png';
+import flag from './../../icons/flag.png';
+import questionMark from './../../icons/questionMark.png';
 
 export const StyledField = styled.button`
 	width: 40px;
@@ -70,6 +72,24 @@ export const MineIcon = styled.div`
     width: 50%;
     height: 50%;
 	background-image: url(${mine});
+	background-size: cover;
+    background-position: center;
+`;
+
+export const FlagIcon = styled.div`
+    margin: auto;
+    width: 50%;
+    height: 50%;
+	background-image: url(${flag});
+	background-size: cover;
+    background-position: center;
+`;
+
+export const QuestionMark = styled.div`
+    margin: auto;
+    width: 50%;
+    height: 50%;
+	background-image: url(${questionMark});
 	background-size: cover;
     background-position: center;
 `;
