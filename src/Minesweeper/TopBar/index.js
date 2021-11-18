@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { newGameButtonClick, selectDifficultyLevel, selectGameStatus, selectGrid } from "./../minesweeperSlice";
 import { difficultyLevels } from "./../consts";
-import { NewGameButton, TopBarWrapper, Wrapper } from "./styled";
+import { NewGameButton, TopBarWrapper, FlagWrapper, FlagIcon } from "./styled";
 import Timer from "./Timer";
 
 const TopBar = () => {
@@ -23,15 +23,13 @@ const TopBar = () => {
 
     return (
         <TopBarWrapper>
-            <Wrapper>
-                🚩: {minesLeft}
-            </Wrapper>
+            <FlagWrapper>
+                <FlagIcon alt="🚩" /> : {minesLeft}
+            </FlagWrapper>
             <NewGameButton onClick={() => dispatch(newGameButtonClick())}>
                 {gameStatus === "won" ? "😎" : gameStatus === "lost" ? "😖" : "😀"}
             </NewGameButton>
-            <Wrapper>
-                <Timer />
-            </Wrapper>
+            <Timer />
         </TopBarWrapper>
     );
 };

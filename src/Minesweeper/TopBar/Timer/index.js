@@ -1,14 +1,15 @@
 import { useSelector } from "react-redux";
 import { selectGameStatus } from "./../../minesweeperSlice";
 import useTimer from "./useTimer";
+import { TimerWrapper, TimerIcon } from "./styled";
 
 const Timer = () => {
     const gameStatus = useSelector(selectGameStatus);
 
     return (
-        <>
-            <span>⏲️: {useTimer(gameStatus)}</span>
-        </>
+        <TimerWrapper>
+            <TimerIcon alt="⏲️" />: {useTimer(gameStatus)}
+        </TimerWrapper>
     );
 };
 
