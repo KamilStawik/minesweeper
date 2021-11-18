@@ -67,29 +67,26 @@ export const StyledField = styled.button`
     `}
 `;
 
+const addStyleToFieldIcon = () =>
+    `   
+        margin: auto;
+        width: 50%;
+        height: 50%;
+        background-size: cover;
+        background-position: center;
+    `;
+
 export const MineIcon = styled.div`
-    margin: auto;
-    width: 50%;
-    height: 50%;
+    ${addStyleToFieldIcon()}
 	background-image: url(${mine});
-	background-size: cover;
-    background-position: center;
 `;
 
 export const FlagIcon = styled.div`
-    margin: auto;
-    width: 50%;
-    height: 50%;
+    ${addStyleToFieldIcon()}
 	background-image: url(${flag});
-	background-size: cover;
-    background-position: center;
 `;
 
 export const QuestionMark = styled.div`
-    margin: auto;
-    width: 50%;
-    height: 50%;
+    ${addStyleToFieldIcon()}
 	background-image: url(${questionMark});
-	background-size: cover;
-    background-position: center;
 `;
