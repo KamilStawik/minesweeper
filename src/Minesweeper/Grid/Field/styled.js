@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components';
+import mine from './../../icons/mine.png';
 
 export const StyledField = styled.button`
 	width: 40px;
     height: 40px;
+    padding: 0px;
     font-size: 13px;
     font-weight: bold;
     background-color: ${({ theme }) => theme.colors.mainLight};
@@ -61,4 +63,13 @@ export const StyledField = styled.button`
         color: black;
         background-color: green;
     `}
+`;
+
+export const MineIcon = styled.div`
+    margin: auto;
+    width: 50%;
+    height: 50%;
+	background-image: url(${mine});
+	background-size: cover;
+    background-position: center;
 `;
