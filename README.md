@@ -42,6 +42,9 @@ Some performance upgrade.
 I've added Redux-Saga to my project.
 Best times are now kept in localStorage.
 
+### version: 0.6.0
+Score board display now five best times on each difficulty level instead of one.
+
 ## Technologies and conventions used in project:
 * HTML
 * CSS
