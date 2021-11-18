@@ -13,7 +13,6 @@ Hi! My name is Kamil. At the begining of 2021 I had a brilliant idea. I started 
 ## About this project
 
 This is one of my favourite classic game - Minesweeper.
-To run this project You need to allow emoji in Your browser.
 I start this project few weeks ago and I am still working on it.
 Right now it has only few basic features.
 
@@ -45,6 +44,10 @@ Best times are now kept in localStorage.
 ### version: 0.6.0
 Score board display now five best times on each difficulty level instead of one.
 
+### version: 0.7.0
+User no longer have to use emoji in browser to run this game.
+Emoji was changed for .png files.
+
 ## Technologies and conventions used in project:
 * HTML
 * CSS
@@ -66,11 +69,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
