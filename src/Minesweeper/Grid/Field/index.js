@@ -1,15 +1,13 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
     rightClick,
-    revealSurroundingFields,
     leftClick,
     selectGameStatus,
     selectDifficultyLevel
 } from "./../../minesweeperSlice";
 import { StyledField, MineIcon, FlagIcon, QuestionMark } from "./styled";
 
-const Field = ({ id, mine, coordinates, revealed, markedAsMine, markedAsQuestion, surroundingMines }) => {
+const Field = ({ id, mine, revealed, markedAsMine, markedAsQuestion, surroundingMines }) => {
     const dispatch = useDispatch();
     const gameStatus = useSelector(selectGameStatus);
     const difficultyLevel = useSelector(selectDifficultyLevel);
@@ -18,17 +16,11 @@ const Field = ({ id, mine, coordinates, revealed, markedAsMine, markedAsQuestion
         if (event.type === 'click') {
             event.preventDefault();
             markedAsMine === false && dispatch(leftClick(id));
-            surroundingMines === 0 && dispatch(revealSurroundingFields(coordinates));
         } else if (event.type === 'contextmenu') {
             event.preventDefault();
             revealed === false && dispatch(rightClick(id));
         }
     };
-
-    useEffect(() => {
-        revealed === true && surroundingMines === 0 && dispatch(revealSurroundingFields(coordinates));
-        // eslint-disable-next-line
-    }, [revealed]);
 
     return (
         <StyledField

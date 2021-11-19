@@ -63,33 +63,6 @@ const minesweeperSlice = createSlice(
                     state.grid[index].markedAsQuestion = false;
                 };
             },
-            revealSurroundingFields: (state, { payload }) => {
-                const dependentFields = [
-                    field => field.coordinates.column === payload.column - 1 && field.coordinates.row === payload.row - 1,
-                    field => field.coordinates.column === payload.column && field.coordinates.row === payload.row - 1,
-                    field => field.coordinates.column === payload.column + 1 && field.coordinates.row === payload.row - 1,
-                    field => field.coordinates.column === payload.column - 1 && field.coordinates.row === payload.row,
-                    field => field.coordinates.column === payload.column + 1 && field.coordinates.row === payload.row,
-                    field => field.coordinates.column === payload.column - 1 && field.coordinates.row === payload.row + 1,
-                    field => field.coordinates.column === payload.column && field.coordinates.row === payload.row + 1,
-                    field => field.coordinates.column === payload.column + 1 && field.coordinates.row === payload.row + 1,
-                ];
-                dependentFields.forEach(dependentField => {
-                    const targetIndex = state.grid.findIndex(dependentField);
-                    state.grid[targetIndex] && (state.grid[targetIndex].revealed = true);
-                    state.grid[targetIndex] && (state.grid[targetIndex].markedAsMine = false);
-                    state.grid[targetIndex] && (state.grid[targetIndex].markedAsQuestion = false);
-                });
-
-                const difficultyLevelsIndex = difficultyLevels.findIndex(difficultyLevel => difficultyLevel.name === state.difficultyLevel)
-                const minesQuantity = difficultyLevels[difficultyLevelsIndex].minesQuantity;
-
-                let fieldsRevealed = 0;
-                state.grid.forEach(field => {
-                    field.revealed === true && (fieldsRevealed = fieldsRevealed + 1);
-                });
-                fieldsRevealed === state.grid.length - minesQuantity && state.gameStatus !== "lost" && (state.gameStatus = "won");
-            },
             setBestTime: (state, { payload }) => {
                 switch (state.difficultyLevel) {
                     case "beginner":
@@ -118,7 +91,6 @@ export const {
     newGameButtonClick,
     setNewDifficultyLevel,
     rightClick,
-    revealSurroundingFields,
     leftClick,
     setBestTime,
 } = minesweeperSlice.actions;
