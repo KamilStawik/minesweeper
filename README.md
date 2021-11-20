@@ -48,6 +48,9 @@ Score board display now five best times on each difficulty level instead of one.
 User no longer have to use emoji in browser to run this game.
 Emoji was changed for .png files.
 
+### version: 0.8.0
+Revealing surrounding empty fields moved from Redux-Saga to separate function for better performence.
+
 ## Technologies and conventions used in project:
 * HTML
 * CSS
