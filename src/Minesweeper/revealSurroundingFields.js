@@ -3,7 +3,7 @@ const revealSurroundingFields = (grid, index) => {
     const clickedFieldCoordinates = grid[index].coordinates;
 
     let idsFieldsToReveal = [];
-    let idsAlreadyCheced = [];
+    let idsAlreadyChecked = [];
 
     const generateDependantFields = (fieldCoordinates) => {
 
@@ -38,10 +38,10 @@ const revealSurroundingFields = (grid, index) => {
 
         dependantFields.forEach(dependantField => {
             const targetIndex = grid.findIndex(dependantField);
-            if (idsAlreadyCheced.includes(targetIndex)) {
+            if (idsAlreadyChecked.includes(targetIndex)) {
                 return;
             } else {
-                idsAlreadyCheced.includes(targetIndex) || idsAlreadyCheced.push(targetIndex);
+                idsAlreadyChecked.includes(targetIndex) || idsAlreadyChecked.push(targetIndex);
                 targetIndex !== -1 && !idsFieldsToReveal.includes(targetIndex) && idsFieldsToReveal.push(targetIndex);
                 (targetIndex !== -1 && grid[targetIndex].surroundingMines === 0 && checkHandler(targetIndex, dependantFields) !== 8)
                     && findFieldsToReveal(grid[targetIndex].coordinates);
