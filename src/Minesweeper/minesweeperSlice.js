@@ -22,21 +22,13 @@ const minesweeperSlice = createSlice(
                 state.grid[index].revealed = true;
                 state.grid[index].mine === true && (state.gameStatus = "lost");
 
-                if (state.grid[index].markedAsMine === true) {
-                    state.grid[index].markedAsMine = false;
-                };
-                state.grid[index].markedAsQuestion === true && (state.grid[index].markedAsQuestion = false);
-
                 const difficultyLevelsIndex = difficultyLevels.findIndex(difficultyLevel => difficultyLevel.name === state.difficultyLevel)
                 const minesQuantity = difficultyLevels[difficultyLevelsIndex].minesQuantity;
 
                 if (state.grid[index].surroundingMines === 0) {
                     const idsFieldsToReveal = revealSurroundingFields(state.grid, index);
-
                     idsFieldsToReveal.forEach(idFieldToReveal => { state.grid[idFieldToReveal].revealed = true });
                 };
-
-                //state.grid[index].surroundingMines === 0 && revealSurroundingFields(state.grid, index);
 
                 let fieldsRevealed = 0;
                 state.grid.forEach(field => {
@@ -106,6 +98,7 @@ export const {
 export const selectGrid = state => state.minesweeper.grid;
 export const selectDifficultyLevel = state => state.minesweeper.difficultyLevel;
 export const selectGameStatus = state => state.minesweeper.gameStatus;
+export const selectBestTimes = state => state.minesweeper.bestTimes;
 export const selectBestTime = state => {
     switch (state.minesweeper.difficultyLevel) {
         case "beginner":
@@ -116,6 +109,5 @@ export const selectBestTime = state => {
             return state.minesweeper.bestTimes.expert;
     };
 };
-export const selectBestTimes = state => state.minesweeper.bestTimes;
 
 export default minesweeperSlice.reducer;
