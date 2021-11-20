@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { difficultyLevels } from "./consts";
 import getGrid from "./getGrid";
+import revealSurroundingFields from "./revealSurroundingFields";
 import { getScoreBoardFromLocalStorage } from "./minesweeperLocalStorage";
 
 const minesweeperSlice = createSlice(
@@ -28,6 +29,14 @@ const minesweeperSlice = createSlice(
 
                 const difficultyLevelsIndex = difficultyLevels.findIndex(difficultyLevel => difficultyLevel.name === state.difficultyLevel)
                 const minesQuantity = difficultyLevels[difficultyLevelsIndex].minesQuantity;
+
+                if (state.grid[index].surroundingMines === 0) {
+                    const idsFieldsToReveal = revealSurroundingFields(state.grid, index);
+
+                    idsFieldsToReveal.forEach(idFieldToReveal => { state.grid[idFieldToReveal].revealed = true });
+                };
+
+                //state.grid[index].surroundingMines === 0 && revealSurroundingFields(state.grid, index);
 
                 let fieldsRevealed = 0;
                 state.grid.forEach(field => {

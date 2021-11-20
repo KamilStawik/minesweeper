@@ -35,5 +35,5 @@ function* revealSurroundingFieldsHandler({ payload }) {
 
 export function* minesweeperSaga() {
     yield takeEvery(setBestTime, saveScoreBoardInLocalStorageHandler);
-    yield takeEvery(leftClick, revealSurroundingFieldsHandler);
+    //yield takeEvery(leftClick, revealSurroundingFieldsHandler);
 }
