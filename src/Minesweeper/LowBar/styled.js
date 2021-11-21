@@ -23,4 +23,10 @@ export const DifficultyLevelButton = styled.button`
     ${({ buttonDifficultyLevel, difficultyLevel }) => buttonDifficultyLevel === difficultyLevel && css`
         font-weight: bold;
     `};
+    &:hover {
+        filter: brightness(110%);
+    }
+    &:active {
+        filter: brightness(120%);
+    }
 `;

@@ -18,10 +18,21 @@ export const TopBarWrapper = styled.div`
 `;
 
 export const NewGameButton = styled.button`
-    border: none;
-    background-color: inherit;
-    padding: 0px;
-    font-size: 40px;
+    cursor: pointer;
+    padding: 2px;
+    border-top: 1px solid ${({ theme }) => theme.colors.lightBorder};
+    border-right: 1px solid ${({ theme }) => theme.colors.darkBorder};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.darkBorder};
+    border-left: 1px solid ${({ theme }) => theme.colors.lightBorder};
+    border-radius: 10px;
+    background-color: ${({ theme }) => theme.colors.topBarBackground};
+
+    &:hover {
+        filter: brightness(110%);
+    }
+    &:active {
+        border: 1px solid ${({ theme }) => theme.colors.darkBorder};
+    }
 `;
 
 export const FlagWrapper = styled.div`
@@ -46,8 +57,8 @@ export const FlagIcon = styled.div`
 
 const addStyleToFaceIcon = () =>
     `   
-        width: 44px;
-        height: 44px;
+        width: 40px;
+        height: 40px;
         background-size: cover;
         background-position: center;
     `;
