@@ -51,6 +51,9 @@ Emoji was changed for .png files.
 ### version: 0.8.0
 Revealing surrounding empty fields moved from Redux-Saga to separate function for better performence.
 
+### version: 0.9.0
+New game button (face between flag counter and clock) looks like a button now. User will notice it.
+
 ## Technologies and conventions used in project:
 * HTML
 * CSS
